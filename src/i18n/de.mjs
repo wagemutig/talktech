@@ -1,6 +1,6 @@
 export const de = {
   nav: {
-    brand: 'Tech Talk',
+    brand: 'TALK-TECH',
     problem: 'Problem',
     solution: 'Lösung',
     adaptive: 'Adaptive KI',
@@ -14,7 +14,7 @@ export const de = {
 
   hero: {
     badge: 'PHZH × afca.ag',
-    title: 'Tech Talk',
+    title: 'TALK-TECH',
     subtitle: 'KI-gestützte Gesprächssimulation für<br class="hidden md:block" /> <span class="font-semibold text-white">technisches Englisch</span>',
     description: 'Ein immersiver, adaptiver Lernprototyp, der generative KI und XR kombiniert, um allen Lernenden einer Berufsfachschulklasse gleichzeitig realistische, individuelle technische Fachgespräche auf Englisch zu ermöglichen.',
     ctaPrimary: 'Konzept entdecken',
@@ -109,7 +109,7 @@ export const de = {
   innovation: {
     badge: 'Was es besonders macht',
     title: 'Innovationswert',
-    subtitle: 'Tech Talk verwandelt Sprachunterricht von einem Broadcast-Modell in ein personalisiertes, immersives Erlebnis — ohne individuelle Softwareentwicklung.',
+    subtitle: 'TALK-TECH verwandelt Sprachunterricht von einem Broadcast-Modell in ein personalisiertes, immersives Erlebnis — ohne individuelle Softwareentwicklung.',
     items: [
       {
         icon: 'M13 10V3L4 14h7v7l9-11h-7z',
@@ -132,7 +132,7 @@ export const de = {
         desc: 'Vollständig prompt-konfiguriert auf der Xara-Plattform — neue Szenarien, Baugruppen oder Berufe können ohne Programmierung hinzugefügt werden, was schnelle Skalierbarkeit und Kosteneffizienz gewährleistet.',
       },
     ],
-    cta: 'Im Mai 2026 begannen erste Sondierungsgespräche mit <strong class="text-white">Swissmem</strong> (dem Schweizer MEM-Branchenverband) bezüglich einer Integration der Tech Talk-Simulation in die neuen FutureMEM-Lehrmittel. Nach den Sommerferien 2026 wird in einem Folgetreffen die Roadmap für die flächendeckende Implementierung in der Schweizer Berufsbildung definiert.',
+    cta: 'Im Mai 2026 begannen erste Sondierungsgespräche mit <strong class="text-white">Swissmem</strong> (dem Schweizer MEM-Branchenverband) bezüglich einer Integration der TALK-TECH-Simulation in die neuen FutureMEM-Lehrmittel. Nach den Sommerferien 2026 wird in einem Folgetreffen die Roadmap für die flächendeckende Implementierung in der Schweizer Berufsbildung definiert.',
   },
 
   team: {
@@ -150,7 +150,7 @@ export const de = {
   partners: {
     badge: 'Kooperationen',
     title: 'Partner & Ökosystem',
-    subtitle: 'Tech Talk wurde innerhalb der IMMERSE-Innovationsstruktur entwickelt, gefördert von der Digitalisierungsinitiative der Zürcher Hochschulen (DIZH).',
+    subtitle: 'TALK-TECH wurde innerhalb der IMMERSE-Innovationsstruktur entwickelt, gefördert von der Digitalisierungsinitiative der Zürcher Hochschulen (DIZH).',
     list: [
       { name: 'PHZH — Pädagogische Hochschule Zürich', url: 'https://phzh.ch', desc: 'Akademische Partnerin' },
       { name: 'afca. ag', url: 'https://afca.ch', desc: 'Technologiepartnerin' },

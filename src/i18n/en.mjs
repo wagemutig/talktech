@@ -1,7 +1,7 @@
 export const en = {
   // Nav
   nav: {
-    brand: 'Tech Talk',
+    brand: 'TALK-TECH',
     problem: 'Problem',
     solution: 'Solution',
     adaptive: 'Adaptive AI',
@@ -16,7 +16,7 @@ export const en = {
   // Hero
   hero: {
     badge: 'PHZH × afca.ag',
-    title: 'Tech Talk',
+    title: 'TALK-TECH',
     subtitle: 'AI-Powered Conversation Simulation for<br class="hidden md:block" /> <span class="font-semibold text-white">Technical English Education</span>',
     description: 'An immersive, adaptive learning prototype combining generative AI and XR to enable every student in a vocational class to simultaneously practice realistic, one-to-one technical conversations in English.',
     ctaPrimary: 'Explore the Concept',
@@ -116,7 +116,7 @@ export const en = {
   innovation: {
     badge: 'What Makes It Different',
     title: 'Innovation Value',
-    subtitle: 'Tech Talk transforms language instruction from a broadcast model into a personalized, immersive experience — without requiring custom software development.',
+    subtitle: 'TALK-TECH transforms language instruction from a broadcast model into a personalized, immersive experience — without requiring custom software development.',
     items: [
       {
         icon: 'M13 10V3L4 14h7v7l9-11h-7z',
@@ -139,7 +139,7 @@ export const en = {
         desc: 'Entirely prompt-configured on the Xara platform — new scenarios, assemblies, or professions can be added without programming, ensuring rapid scalability and cost efficiency.',
       },
     ],
-    cta: 'In May 2026, initial exploratory talks began with <strong class="text-white">Swissmem</strong> (the Swiss MEM industry association) regarding integration of the Tech Talk simulation into the new FutureMEM teaching materials. Post-summer 2026, a follow-up meeting will define the roadmap for nationwide implementation across Swiss vocational education.',
+    cta: 'In May 2026, initial exploratory talks began with <strong class="text-white">Swissmem</strong> (the Swiss MEM industry association) regarding integration of the TALK-TECH simulation into the new FutureMEM teaching materials. Post-summer 2026, a follow-up meeting will define the roadmap for nationwide implementation across Swiss vocational education.',
   },
 
   // Team
@@ -159,7 +159,7 @@ export const en = {
   partners: {
     badge: 'Collaborators',
     title: 'Partners & Ecosystem',
-    subtitle: 'Tech Talk was developed within the IMMERSE innovation structure, funded by the Digitalization Initiative of the Zurich Universities (DIZH).',
+    subtitle: 'TALK-TECH was developed within the IMMERSE innovation structure, funded by the Digitalization Initiative of the Zurich Universities (DIZH).',
     list: [
       { name: 'PHZH — Pädagogische Hochschule Zürich', url: 'https://phzh.ch', desc: 'Academic Partner' },
       { name: 'afca. ag', url: 'https://afca.ch', desc: 'Technology Partner' },

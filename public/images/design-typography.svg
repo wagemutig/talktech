@@ -15,7 +15,7 @@
   <rect width="1200" height="900" fill="url(#bgGrad)"/>
 
   <!-- Title -->
-  <text x="60" y="70" font-size="32" font-weight="700" fill="url(#brandGrad)">Tech Talk — Typography</text>
+  <text x="60" y="70" font-size="32" font-weight="700" fill="url(#brandGrad)">TALK-TECH — Typography</text>
   <text x="60" y="100" font-size="14" font-weight="400" fill="#94a3b8">Font: Inter · Designed by Rasmus Andersson · Google Fonts</text>
   <line x1="60" y1="115" x2="1140" y2="115" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
 
