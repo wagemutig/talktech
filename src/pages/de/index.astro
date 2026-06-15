@@ -1,0 +1,11 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import PageContent from '../../components/PageContent.astro';
+import { useTranslations } from '../../i18n/index.mjs';
+
+const t = useTranslations('de');
+---
+
+<Layout>
+  <PageContent t={t} locale="de" />
+</Layout>

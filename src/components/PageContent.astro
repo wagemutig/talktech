@@ -1,0 +1,319 @@
+---
+export const team = [
+  { name: 'Oliver Schulthess', role: 'Project Lead & Didactic Concept', initials: 'OS', gradient: 'from-blue-400 to-cyan-300' },
+  { name: 'Jonas Schubnell', role: 'AI Prompt Engineering & Prototyping', initials: 'JS', gradient: 'from-emerald-400 to-teal-300' },
+  { name: 'Aaron Schmid', role: 'Technical Architecture & XR Integration', initials: 'AS', gradient: 'from-violet-400 to-purple-300' },
+  { name: 'Colin Schmid', role: 'Evaluation & Curriculum Alignment', initials: 'CS', gradient: 'from-amber-400 to-orange-300' },
+];
+
+const { t, locale } = Astro.props;
+---
+
+<!-- ════════ NAV / HEADER ════════ -->
+<nav class="fixed top-0 left-0 right-0 z-50 glass">
+  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <a href="#" class="text-xl font-bold gradient-text tracking-tight">TALK-TECH</a>
+    <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <a href="#problem" class="hover:text-white transition-colors">{t.nav.problem}</a>
+      <a href="#solution" class="hover:text-white transition-colors">{t.nav.solution}</a>
+      <a href="#adaptive" class="hover:text-white transition-colors">{t.nav.adaptive}</a>
+      <a href="#avatars" class="hover:text-white transition-colors">{t.nav.avatars}</a>
+      <a href="#innovation" class="hover:text-white transition-colors">{t.nav.innovation}</a>
+      <a href="#team" class="hover:text-white transition-colors">{t.nav.team}</a>
+    </div>
+    <div class="flex items-center gap-3">
+      <a href={t.nav.langUrl} class="bg-white/10 hover:bg-white/20 text-white text-sm font-semibold px-4 py-2 rounded-full transition-all">{t.nav.lang}</a>
+      <a href="#partners" class="bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all">{t.nav.partners}</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ════════ HERO ════════ -->
+<section class="gradient-bg relative overflow-hidden min-h-screen flex items-center">
+  <div class="absolute inset-0 opacity-10">
+    <div class="absolute top-20 left-10 w-72 h-72 bg-brand-400 rounded-full blur-3xl" />
+    <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-400 rounded-full blur-3xl" />
+  </div>
+  <div class="max-w-6xl mx-auto px-6 py-32 relative z-10">
+    <div class="max-w-3xl">
+      <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 text-xs font-medium text-slate-300 mb-8">
+        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+        {t.hero.badge}
+      </div>
+      <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+        <span class="gradient-text">{t.hero.title}</span>
+      </h1>
+      <p class="text-xl md:text-2xl font-light text-slate-300 mb-4 leading-relaxed" set:html={t.hero.subtitle} />
+      <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-10 max-w-2xl">{t.hero.description}</p>
+      <div class="flex flex-wrap gap-4">
+        <a href="#solution" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg shadow-brand-600/25">{t.hero.ctaPrimary}</a>
+        <a href="#team" class="glass hover:bg-white/10 text-slate-200 font-semibold px-8 py-3 rounded-full transition-all">{t.hero.ctaSecondary}</a>
+      </div>
+    </div>
+  </div>
+  <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+    <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+    </svg>
+  </div>
+</section>
+
+<!-- ════════ PROBLEM ════════ -->
+<section id="problem" class="py-24 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="max-w-3xl mx-auto text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.problem.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">{t.problem.title}</h2>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      {t.problem.cards.map((card) => (
+        <div class="glass rounded-2xl p-8 border border-red-500/10">
+          <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
+            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+            </svg>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">{card.title}</h3>
+          <p class="text-slate-400 leading-relaxed" set:html={card.text}></p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ SOLUTION / 3-PHASE OVERVIEW ════════ -->
+<section id="solution" class="py-24 bg-slate-900/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.solution.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">{t.solution.title}</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">{t.solution.subtitle}</p>
+    </div>
+    <div class="grid md:grid-cols-3 gap-6">
+      {t.solution.phases.map((phase) => (
+        <div class="glass rounded-2xl p-8 border border-white/5 relative animate-in">
+          <div class={`inline-flex items-center gap-2 bg-gradient-to-r from-${phase.color || 'blue-500'} to-${phase.color || 'blue-600'} px-3 py-1 rounded-full text-xs font-bold text-white mb-5`}>
+            <span>{phase.step}</span>
+            <span class="w-px h-3 bg-white/30" />
+            <span>{phase.time}</span>
+            <span class="w-px h-3 bg-white/30" />
+            <span>{phase.lang}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white mb-3">{phase.title}</h3>
+          <p class="text-slate-400 leading-relaxed text-sm">{phase.text}</p>
+        </div>
+      ))}
+    </div>
+    <div class="mt-12 glass rounded-2xl p-8 border border-brand-500/20 text-center">
+      <div class="max-w-3xl mx-auto">
+        <h3 class="text-lg font-semibold text-white mb-3">{t.solution.platformTitle}</h3>
+        <p class="text-slate-400 leading-relaxed text-sm">{t.solution.platformText}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ADAPTIVE AI ════════ -->
+<section id="adaptive" class="py-24 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.adaptive.badge}</span>
+        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">{t.adaptive.title}</h2>
+        <p class="text-slate-400 leading-relaxed mb-8">{t.adaptive.text}</p>
+        <div class="space-y-4">
+          {t.adaptive.levels.map((level) => {
+            const colorMap = { K1: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30', K2: 'bg-amber-500/20 text-amber-300 border-amber-500/30', K3: 'bg-rose-500/20 text-rose-300 border-rose-500/30' };
+            return (
+              <div class={`rounded-xl border p-4 ${colorMap[level.id] || 'bg-slate-800 text-slate-300 border-slate-600'}`}>
+                <div class="flex items-center gap-3 mb-1">
+                  <span class="font-bold text-sm">{level.id}</span>
+                  <span class="font-semibold text-sm">{level.name}</span>
+                </div>
+                <p class="text-xs text-slate-400">{level.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+        <p class="text-slate-500 text-sm mt-6 leading-relaxed">{t.adaptive.footnote}</p>
+      </div>
+      <div class="glass rounded-2xl p-8 border border-white/5">
+        <h3 class="text-lg font-semibold text-white mb-6">{t.adaptive.flowTitle}</h3>
+        <div class="space-y-6">
+          {t.adaptive.flowExamples.map((ex) => {
+            const dotColor = { K1: 'bg-emerald-500/20 text-emerald-300', K2: 'bg-amber-500/20 text-amber-300', K3: 'bg-rose-500/20 text-rose-300' };
+            return (
+              <div class="flex items-start gap-4">
+                <div class={`w-8 h-8 rounded-full ${dotColor[ex.level] || 'bg-slate-700'} flex items-center justify-center shrink-0 mt-1`}>
+                  <span class="font-bold text-xs">{ex.level}</span>
+                </div>
+                <div>
+                  <p class="text-sm font-medium text-white mb-1">{ex.label}</p>
+                  <p class="text-xs text-slate-400 italic">{ex.quote}</p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+        <div class="mt-6 pt-6 border-t border-white/5">
+          <div class="flex items-center gap-2 text-sm text-slate-400">
+            <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+            <span>{t.adaptive.flowNote}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ AVATARS ════════ -->
+<section id="avatars" class="py-24 bg-slate-900/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.avatars.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">{t.avatars.title}</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">{t.avatars.subtitle}</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-8">
+      <!-- Ms. Goodwill -->
+      <div class="glass rounded-2xl p-8 border border-blue-500/10 avatar-card transition-all duration-300">
+        <div class="flex items-start gap-5 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-300 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-xl">{t.avatars.goodwill.initials}</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">{t.avatars.goodwill.name}</h3>
+            <p class="text-sm text-blue-300 font-medium">{t.avatars.goodwill.role}</p>
+          </div>
+        </div>
+        <div class="space-y-4 text-sm text-slate-400">
+          <div class="glass rounded-xl p-4 border border-white/5">
+            <span class="font-semibold text-white block mb-1">{t.avatars.goodwill.briefing.title}</span>
+            <span>{t.avatars.goodwill.briefing.text}</span>
+          </div>
+          <div class="glass rounded-xl p-4 border border-white/5">
+            <span class="font-semibold text-white block mb-1">{t.avatars.goodwill.reflection.title}</span>
+            <span>{t.avatars.goodwill.reflection.text}</span>
+          </div>
+        </div>
+      </div>
+      <!-- Mr. Barker -->
+      <div class="glass rounded-2xl p-8 border border-emerald-500/10 avatar-card transition-all duration-300">
+        <div class="flex items-start gap-5 mb-6">
+          <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-300 flex items-center justify-center shrink-0">
+            <span class="text-white font-bold text-xl">{t.avatars.barker.initials}</span>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold text-white">{t.avatars.barker.name}</h3>
+            <p class="text-sm text-emerald-300 font-medium">{t.avatars.barker.role}</p>
+          </div>
+        </div>
+        <div class="space-y-4 text-sm text-slate-400">
+          <div class="glass rounded-xl p-4 border border-white/5">
+            <span class="font-semibold text-white block mb-1">{t.avatars.barker.conversation.title}</span>
+            <span>{t.avatars.barker.conversation.text}</span>
+          </div>
+          <div class="glass rounded-xl p-4 border border-white/5">
+            <span class="font-semibold text-white block mb-1">{t.avatars.barker.interaction.title}</span>
+            <span set:html={t.avatars.barker.interaction.text}></span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ INNOVATION ════════ -->
+<section id="innovation" class="py-24 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.innovation.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">{t.innovation.title}</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">{t.innovation.subtitle}</p>
+    </div>
+    <div class="grid md:grid-cols-2 gap-6">
+      {t.innovation.items.map((item) => (
+        <div class="glass rounded-2xl p-6 border border-white/5 flex gap-4">
+          <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center shrink-0 mt-1">
+            <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-lg font-semibold text-white mb-2">{item.title}</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+    <div class="mt-10 glass rounded-2xl p-8 border border-brand-500/10 text-center">
+      <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto" set:html={t.innovation.cta}></p>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TEAM ════════ -->
+<section id="team" class="py-24 bg-slate-900/50">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.team.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">{t.team.title}</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">{t.team.subtitle}</p>
+    </div>
+    <div class="grid md:grid-cols-4 gap-6">
+      {t.team.members.map((member) => (
+        <div class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300">
+          <div class={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center mb-4`}>
+            <span class="text-white font-bold text-2xl">{member.initials}</span>
+          </div>
+          <h3 class="text-lg font-semibold text-white">{member.name}</h3>
+          <p class="text-sm text-slate-400 mt-1">{member.role}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ PARTNERS ════════ -->
+<section id="partners" class="py-24 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="text-center mb-16">
+      <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">{t.partners.badge}</span>
+      <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">{t.partners.title}</h2>
+      <p class="text-slate-400 max-w-2xl mx-auto">{t.partners.subtitle}</p>
+    </div>
+    <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
+      {t.partners.list.map((partner) => (
+        <a href={partner.url} target="_blank" class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300 group block">
+          <div class="w-14 h-14 mx-auto rounded-xl bg-brand-500/10 flex items-center justify-center mb-4 group-hover:bg-brand-500/20 transition-colors">
+            <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+            </svg>
+          </div>
+          <h3 class="text-sm font-semibold text-white group-hover:text-brand-400 transition-colors">{partner.name}</h3>
+          <p class="text-xs text-slate-500 mt-2">{partner.desc}</p>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOOTER ════════ -->
+<footer class="border-t border-white/5 py-12 bg-slate-950">
+  <div class="max-w-6xl mx-auto px-6">
+    <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div>
+        <span class="text-xl font-bold gradient-text">TALK-TECH</span>
+        <p class="text-sm text-slate-500 mt-1">AI-Powered Technical English Training</p>
+      </div>
+      <div class="text-center md:text-right">
+        <p class="text-sm text-slate-500">{t.footer.credit}</p>
+        <p class="text-xs text-slate-600 mt-1">
+          &copy; {new Date().getFullYear()} TALK-TECH Team. {t.footer.rights}
+        </p>
+      </div>
+    </div>
+  </div>
+</footer>
