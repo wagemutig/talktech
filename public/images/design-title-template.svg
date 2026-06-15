@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 180" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+  </defs>
+  <!-- Transparent video lower-third / title template -->
+  <rect x="0" y="0" width="1920" height="180" fill="url(#g)" opacity="0.92" rx="0"/>
+  <rect x="0" y="0" width="1920" height="180" fill="#0f172a" opacity="0.85"/>
+  <!-- Gradient accent bar -->
+  <rect x="0" y="48" width="6" height="84" fill="url(#g)"/>
+  <!-- Title line -->
+  <text x="40" y="100" font-size="38" font-weight="700" fill="#ffffff" letter-spacing="-0.5">Your Title Here</text>
+  <!-- Subtitle line -->
+  <text x="40" y="138" font-size="20" font-weight="400" fill="#94a3b8">Your subtitle or description text</text>
+</svg>
