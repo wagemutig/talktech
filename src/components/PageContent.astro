@@ -12,7 +12,7 @@ const { t, locale } = Astro.props;
 <!-- ════════ NAV / HEADER ════════ -->
 <nav class="fixed top-0 left-0 right-0 z-50 glass">
   <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="#" class="text-xl font-bold gradient-text tracking-tight">TALK-TECH</a>
+    <a href="#" class="text-xl font-bold gradient-text tracking-tight">Tech Talk</a>
     <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
       <a href="#problem" class="hover:text-white transition-colors">{t.nav.problem}</a>
       <a href="#solution" class="hover:text-white transition-colors">{t.nav.solution}</a>
@@ -327,13 +327,13 @@ const { t, locale } = Astro.props;
   <div class="max-w-6xl mx-auto px-6">
     <div class="flex flex-col md:flex-row items-center justify-between gap-6">
       <div>
-        <span class="text-xl font-bold gradient-text">TALK-TECH</span>
+        <span class="text-xl font-bold gradient-text">Tech Talk</span>
         <p class="text-sm text-slate-500 mt-1">AI-Powered Technical English Training</p>
       </div>
       <div class="text-center md:text-right">
         <p class="text-sm text-slate-500">{t.footer.credit}</p>
         <p class="text-xs text-slate-600 mt-1">
-          &copy; {new Date().getFullYear()} TALK-TECH Team. {t.footer.rights}
+          &copy; {new Date().getFullYear()} Tech Talk Team. {t.footer.rights}
         </p>
       </div>
     </div>
