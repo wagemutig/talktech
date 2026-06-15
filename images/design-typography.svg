@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <linearGradient id="brandGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6"/>
+      <stop offset="100%" stop-color="#22c55e"/>
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a"/>
+      <stop offset="50%" stop-color="#1e3a8a"/>
+      <stop offset="100%" stop-color="#14532d"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="900" fill="url(#bgGrad)"/>
+
+  <!-- Title -->
+  <text x="60" y="70" font-size="32" font-weight="700" fill="url(#brandGrad)">Tech Talk — Typography</text>
+  <text x="60" y="100" font-size="14" font-weight="400" fill="#94a3b8">Font: Inter · Designed by Rasmus Andersson · Google Fonts</text>
+  <line x1="60" y1="115" x2="1140" y2="115" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+  <!-- Weight 300 Light -->
+  <text x="60" y="160" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 300 — LIGHT</text>
+  <text x="60" y="200" font-size="42" font-weight="300" fill="#e2e8f0">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="225" font-size="18" font-weight="300" fill="#cbd5e1">The quick brown fox jumps over the lazy dog.</text>
+  <line x1="60" y1="240" x2="1140" y2="240" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Weight 400 Regular -->
+  <text x="60" y="280" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 400 — REGULAR</text>
+  <text x="60" y="320" font-size="42" font-weight="400" fill="#e2e8f0">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="345" font-size="18" font-weight="400" fill="#cbd5e1">The quick brown fox jumps over the lazy dog.</text>
+  <line x1="60" y1="360" x2="1140" y2="360" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Weight 500 Medium -->
+  <text x="60" y="400" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 500 — MEDIUM</text>
+  <text x="60" y="440" font-size="42" font-weight="500" fill="#e2e8f0">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="465" font-size="18" font-weight="500" fill="#cbd5e1">The quick brown fox jumps over the lazy dog.</text>
+  <line x1="60" y1="480" x2="1140" y2="480" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Weight 600 SemiBold -->
+  <text x="60" y="520" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 600 — SEMIBOLD</text>
+  <text x="60" y="560" font-size="42" font-weight="600" fill="#e2e8f0">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="585" font-size="18" font-weight="600" fill="#cbd5e1">The quick brown fox jumps over the lazy dog.</text>
+  <line x1="60" y1="600" x2="1140" y2="600" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Weight 700 Bold -->
+  <text x="60" y="640" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 700 — BOLD</text>
+  <text x="60" y="680" font-size="42" font-weight="700" fill="#e2e8f0">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="705" font-size="18" font-weight="700" fill="#cbd5e1">The quick brown fox jumps over the lazy dog.</text>
+  <line x1="60" y1="720" x2="1140" y2="720" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+  <!-- Weight 800 ExtraBold -->
+  <text x="60" y="760" font-size="10" fill="#64748b" letter-spacing="1.5">WEIGHT 800 — EXTRABOLD (LOGO WEIGHT)</text>
+  <text x="60" y="800" font-size="42" font-weight="800" fill="url(#brandGrad)">The quick brown fox jumps over the lazy dog.</text>
+  <text x="60" y="825" font-size="18" font-weight="800" fill="url(#brandGrad)">The quick brown fox jumps over the lazy dog.</text>
+
+  <!-- Legend -->
+  <text x="60" y="875" font-size="11" fill="#64748b">
+    <tspan fill="#e2e8f0" font-weight="600">Usage guide: </tspan>
+    <tspan fill="#94a3b8">Body text: 400 · </tspan>
+    <tspan fill="#94a3b8">Headings: 600-700 · </tspan>
+    <tspan fill="#94a3b8">Nav &amp; buttons: 600 · </tspan>
+    <tspan fill="#94a3b8">Logo: 800 gradient · </tspan>
+    <tspan fill="#94a3b8">Body color: #e2e8f0 · </tspan>
+    <tspan fill="#94a3b8">Muted: #94a3b8</tspan>
+  </text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 220" font-family="Inter, system-ui, sans-serif">
+  <defs>
+    <filter id="shadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000000" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  <!-- K1 Badge -->
+  <g filter="url(#shadow)">
+    <rect x="0" y="0" width="160" height="60" rx="30" fill="rgba(16,185,129,0.15)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+    <text x="22" y="37" font-size="22" font-weight="800" fill="#34d399">K1</text>
+    <text x="58" y="37" font-size="13" font-weight="600" fill="#6ee7b7">Knowledge</text>
+  </g>
+  <!-- K2 Badge -->
+  <g filter="url(#shadow)">
+    <rect x="190" y="0" width="190" height="60" rx="30" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+    <text x="212" y="37" font-size="22" font-weight="800" fill="#fbbf24">K2</text>
+    <text x="248" y="37" font-size="13" font-weight="600" fill="#fcd34d">Understanding</text>
+  </g>
+  <!-- K3 Badge -->
+  <g filter="url(#shadow)">
+    <rect x="410" y="0" width="170" height="60" rx="30" fill="rgba(244,63,94,0.15)" stroke="rgba(244,63,94,0.4)" stroke-width="1.5"/>
+    <text x="432" y="37" font-size="22" font-weight="800" fill="#fb7185">K3</text>
+    <text x="468" y="37" font-size="13" font-weight="600" fill="#fda4af">Application</text>
+  </g>
+
+  <!-- Badge labels -->
+  <text x="80" y="100" font-size="11" font-weight="500" text-anchor="middle" fill="#64748b" letter-spacing="1">COGNITIVE LEVEL 1</text>
+  <text x="80" y="118" font-size="10" fill="#475569" text-anchor="middle">Identify &amp; name components</text>
+
+  <text x="285" y="100" font-size="11" font-weight="500" text-anchor="middle" fill="#64748b" letter-spacing="1">COGNITIVE LEVEL 2</text>
+  <text x="285" y="118" font-size="10" fill="#475569" text-anchor="middle">Explain functions &amp; relationships</text>
+
+  <text x="495" y="100" font-size="11" font-weight="500" text-anchor="middle" fill="#64748b" letter-spacing="1">COGNITIVE LEVEL 3</text>
+  <text x="495" y="118" font-size="10" fill="#475569" text-anchor="middle">Solve engineering problems</text>
+
+  <!-- Example quotes -->
+  <text x="40" y="155" font-size="11" font-weight="400" font-style="italic" fill="#475569">"Which component is at position 3?"</text>
+  <text x="190" y="155" font-size="11" font-weight="400" font-style="italic" fill="#475569">"Why use a radial shaft seal here?"</text>
+  <text x="410" y="155" font-size="11" font-weight="400" font-style="italic" fill="#475569">"The gearbox is overheating — what could cause it?"</text>
+
+  <!-- Separator -->
+  <line x1="165" y1="30" x2="165" y2="30" stroke="rgba(255,255,255,0.08)" stroke-width="1" opacity="0"/>
+</svg>
