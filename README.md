@@ -13,6 +13,10 @@
 </p>
 
 <p align="center">
+  <a href="https://wagemutig.github.io/talktech/"><img src="https://img.shields.io/badge/Live-View%20Site-brightgreen?style=for-the-badge&logo=githubpages" /></a>
+</p>
+
+<p align="center">
   <img src="https://img.shields.io/badge/XR-Xara-blue" />
   <img src="https://img.shields.io/badge/AI-GPT--4o-green" />
   <img src="https://img.shields.io/badge/Cloud-Azure-0078D4" />
