@@ -180,7 +180,7 @@ const { t, locale } = Astro.props;
       <!-- Ms. Goodwill -->
       <div class="glass rounded-2xl p-8 border border-blue-500/10 avatar-card transition-all duration-300">
         <div class="flex items-start gap-5 mb-6">
-          <img src="/techtalk/images/avatar_msgoodwill.png" alt="Ms. Goodwill" class="w-16 h-16 rounded-2xl object-cover shrink-0" />
+          <img src="/talktech/images/avatar_msgoodwill.png" alt="Ms. Goodwill" class="w-16 h-16 rounded-2xl object-cover shrink-0" />
           <div>
             <h3 class="text-xl font-bold text-white">{t.avatars.goodwill.name}</h3>
             <p class="text-sm text-blue-300 font-medium">{t.avatars.goodwill.role}</p>
@@ -200,7 +200,7 @@ const { t, locale } = Astro.props;
       <!-- Mr. Barker -->
       <div class="glass rounded-2xl p-8 border border-emerald-500/10 avatar-card transition-all duration-300">
         <div class="flex items-start gap-5 mb-6">
-          <img src="/techtalk/images/avatar_mrbarker.png" alt="Mr. Barker" class="w-16 h-16 rounded-2xl object-cover shrink-0" />
+          <img src="/talktech/images/avatar_mrbarker.png" alt="Mr. Barker" class="w-16 h-16 rounded-2xl object-cover shrink-0" />
           <div>
             <h3 class="text-xl font-bold text-white">{t.avatars.barker.name}</h3>
             <p class="text-sm text-emerald-300 font-medium">{t.avatars.barker.role}</p>
@@ -270,7 +270,7 @@ const { t, locale } = Astro.props;
         return (
         <div class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300">
           {imgFile ? (
-            <img src={`/techtalk/images/${imgMap[imgFile]}`} alt={member.name} class="w-20 h-20 mx-auto rounded-2xl object-cover mb-4" />
+            <img src={`/talktech/images/${imgMap[imgFile]}`} alt={member.name} class="w-20 h-20 mx-auto rounded-2xl object-cover mb-4" />
           ) : (
             <div class={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center mb-4`}>
               <span class="text-white font-bold text-2xl">{member.initials}</span>
@@ -305,7 +305,7 @@ const { t, locale } = Astro.props;
         <a href={partner.url} target="_blank" class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300 group block flex flex-col items-center justify-center min-h-[160px]">
           <div class="w-full h-20 flex items-center justify-center mb-4 px-4">
             {logoKey ? (
-              <img src={`/techtalk/images/${logoMap[logoKey]}`} alt={partner.name} class="max-h-full max-w-full object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-all" />
+              <img src={`/talktech/images/${logoMap[logoKey]}`} alt={partner.name} class="max-h-full max-w-full object-contain brightness-0 invert opacity-70 group-hover:opacity-100 transition-all" />
             ) : (
               <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center group-hover:bg-brand-500/20 transition-colors">
                 <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">

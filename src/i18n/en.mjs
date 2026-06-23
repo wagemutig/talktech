@@ -10,7 +10,7 @@ export const en = {
     team: 'Team',
     partners: 'Partners',
     lang: 'DE',
-    langUrl: '/techtalk/de/',
+    langUrl: '/talktech/de/',
   },
 
   // Hero

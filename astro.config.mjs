@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://wagemutig.github.io',
-  base: '/techtalk',
+  base: '/talktech',
   i18n: {
     defaultLocale: 'en',
     locales: ['en', 'de'],
@@ -16,5 +16,15 @@ export default defineConfig({
   },
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  env: {
+    schema: {
+      ELEVENLABS_AGENT_ID: {
+        type: 'string',
+        context: 'client',
+        access: 'public',
+        optional: true,
+      },
+    },
+  },
 });

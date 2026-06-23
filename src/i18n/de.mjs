@@ -9,7 +9,7 @@ export const de = {
     team: 'Team',
     partners: 'Partner',
     lang: 'EN',
-    langUrl: '/techtalk/',
+    langUrl: '/talktech/',
   },
 
   hero: {
