@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Layout>
   <main class="wrap" style="padding-block:96px;max-width:720px">
-    <a class="wordmark" href="/">TALK-TECH</a>
+    <a class="wordmark" href={`${b}/`}>TALK-TECH</a>
     <h1 style="font-size:clamp(2rem,4vw,3rem);margin-top:32px">Danke für Ihre Anfrage.</h1>
     <p class="lede">Sie ist bei uns angekommen. Wir melden uns persönlich bei Ihnen.</p>
-    <div class="cta"><a class="btn btn-primary" href="/">Zurück zur Startseite</a></div>
+    <div class="cta"><a class="btn btn-primary" href={`${b}/`}>Zurück zur Startseite</a></div>
   </main>
 </Layout>

@@ -1,0 +1,149 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080">
+  <defs>
+    <!-- Background gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#1e293b" />
+    </linearGradient>
+
+    <!-- Accent gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="100%" stop-color="#10b981" />
+    </linearGradient>
+
+    <!-- Glow filter -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="1080" fill="url(#bgGrad)" />
+
+  <!-- Subtle decorative elements -->
+  <circle cx="200" cy="200" r="300" fill="#3b82f6" opacity="0.03" />
+  <circle cx="1700" cy="900" r="400" fill="#10b981" opacity="0.03" />
+
+  <!-- Top accent line -->
+  <rect x="660" y="120" width="600" height="3" rx="1.5" fill="url(#accentGrad)" opacity="0.8" />
+
+  <!-- ════════ MAIN TITLE ════════ -->
+  <text x="960" y="200" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="800" font-size="72" fill="#f8fafc" letter-spacing="-0.02em">TALK-TECH</text>
+
+  <text x="960" y="250" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="24" fill="#94a3b8">AI-Powered Conversation Simulation for Technical English Education</text>
+
+  <!-- Bottom accent line -->
+  <rect x="660" y="280" width="600" height="3" rx="1.5" fill="url(#accentGrad)" opacity="0.8" />
+
+  <!-- ════════ SECTION: PROJECT INFO ════════ -->
+  <text x="960" y="350" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="14" fill="#3b82f6" letter-spacing="0.15em" text-transform="uppercase">PROJECT</text>
+
+  <text x="960" y="390" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="18" fill="#cbd5e1">A hackAstone project by the Zurich University of Teacher Education (PHZH)</text>
+  <text x="960" y="420" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="18" fill="#cbd5e1">Developed within the IMMERSE innovation structure, funded by DIZH</text>
+
+  <!-- ════════ SECTION: TEAM ════════ -->
+  <text x="960" y="490" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="14" fill="#3b82f6" letter-spacing="0.15em" text-transform="uppercase">TEAM</text>
+
+  <text x="960" y="530" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="20" fill="#f1f5f9">Oliver Schulthess — Project Lead &amp; Didactic Concept</text>
+  <text x="960" y="565" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="20" fill="#f1f5f9">Jonas Schubnell — AI Prompt Engineering &amp; Prototyping</text>
+  <text x="960" y="600" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="20" fill="#f1f5f9">Aaron Schmid — Technical Architecture &amp; XR Integration</text>
+  <text x="960" y="635" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="500" font-size="20" fill="#f1f5f9">Colin Schmid — Interaction Design</text>
+
+  <!-- ════════ SECTION: PARTNERS ════════ -->
+  <text x="960" y="720" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="14" fill="#3b82f6" letter-spacing="0.15em" text-transform="uppercase">PARTNERS &amp; ECOSYSTEM</text>
+
+  <!-- Partner logos container -->
+  <g transform="translate(0, 760)">
+    <!-- PHZH -->
+    <g transform="translate(360, 0)">
+      <rect width="240" height="80" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="120" y="30" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="600" font-size="14" fill="#94a3b8">PHZH</text>
+      <text x="120" y="55" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="11" fill="#64748b">Pädagogische Hochschule Zürich</text>
+      <text x="120" y="72" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="10" fill="#475569">Academic Partner</text>
+    </g>
+
+    <!-- afca -->
+    <g transform="translate(640, 0)">
+      <rect width="200" height="80" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="18" fill="#94a3b8">afca. ag</text>
+      <text x="100" y="62" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="11" fill="#64748b">Technology Partner</text>
+    </g>
+
+    <!-- DIZH -->
+    <g transform="translate(880, 0)">
+      <rect width="200" height="80" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="18" fill="#94a3b8">DIZH</text>
+      <text x="100" y="62" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="11" fill="#64748b">Digitalization Initiative ZH</text>
+    </g>
+
+    <!-- FutureMEM -->
+    <g transform="translate(1120, 0)">
+      <rect width="200" height="80" rx="12" fill="#1e293b" stroke="#334155" stroke-width="1"/>
+      <text x="100" y="35" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="700" font-size="16" fill="#94a3b8">FutureMEM</text>
+      <text x="100" y="62" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="11" fill="#64748b">Curriculum Reform</text>
+    </g>
+  </g>
+
+  <!-- ════════ PLACEHOLDER TEXT BOXES ════════ -->
+  <!-- These rectangles indicate where you can add custom text in your video editor -->
+
+  <!-- Placeholder: Tagline -->
+  <g transform="translate(760, 870)">
+    <rect width="400" height="40" rx="8" fill="none" stroke="#3b82f6" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="12" fill="#3b82f6" opacity="0.7">[ YOUR TAGLINE HERE ]</text>
+  </g>
+
+  <!-- Placeholder: Contact / URL -->
+  <g transform="translate(760, 920)">
+    <rect width="400" height="40" rx="8" fill="none" stroke="#10b981" stroke-width="1" stroke-dasharray="6 4" opacity="0.5"/>
+    <text x="200" y="25" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="12" fill="#10b981" opacity="0.7">[ WEBSITE / CONTACT HERE ]</text>
+  </g>
+
+  <!-- ════════ FOOTER ════════ -->
+  <text x="960" y="1020" text-anchor="middle" font-family="Inter, system-ui, sans-serif" font-weight="400" font-size="14" fill="#475569">© 2026 TALK-TECH Team. All rights reserved.</text>
+
+  <!-- ════════ USAGE GUIDE (hidden, for reference) ════════ -->
+  <!--
+    PLACEHOLDER GUIDE:
+    =================
+
+    1. OPEN IN VIDEO EDITOR:
+       Import this SVG into After Effects, Premiere Pro, DaVinci Resolve,
+       or any editor that supports SVG. Scale to 1920×1080.
+
+    2. EDIT TEXT PLACEHOLDERS:
+       The dashed boxes mark areas for custom text overlays:
+       - Tagline: Add your campaign slogan or key message
+       - Website/Contact: Add URL, email, or social handles
+
+    3. REPLACE PARTNER LOGOS:
+       The partner boxes are placeholders. To use real logos:
+       - Export partner logos as PNG/SVG with transparent backgrounds
+       - Overlay them on the partner boxes in your video editor
+       - Or: edit this SVG and replace the <text> elements with <image> tags:
+         <image href="phzh-logo.svg" x="360" y="760" width="240" height="80" />
+
+    4. CUSTOMIZE COLORS:
+       Edit the gradient stops in <defs> to match your brand.
+
+    5. ANIMATE:
+       - Fade in elements sequentially
+       - Add subtle motion to the background circles
+       - Animate the accent line width
+  -->
+
+  <!-- ════════ REAL LOGO VERSION (uncomment to use actual partner logos) ════════ -->
+  <!--
+  <g transform="translate(0, 760)">
+    <image href="phzh-logo.svg" x="360" y="0" width="240" height="80" />
+    <image href="afca-logo.svg" x="640" y="0" width="200" height="80" />
+    <image href="dizh-logo.jpg" x="880" y="0" width="200" height="80" />
+    <image href="futuremem-logo.svg" x="1120" y="0" width="200" height="80" />
+  </g>
+  -->
+  </svg>

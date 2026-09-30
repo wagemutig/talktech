@@ -1,5 +1,9 @@
 ---
 import '../styles/global.css';
+
+interface Props { title?: string }
+const { title = 'TALK-TECH · KI-Gesprächssimulationen für die Berufsbildung' } = Astro.props;
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <!doctype html>
@@ -7,10 +11,10 @@ import '../styles/global.css';
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href={`${b}/favicon.svg`} />
+    <link rel="icon" href={`${b}/favicon.ico`} />
     <meta name="generator" content={Astro.generator} />
-    <title>TALK-TECH · KI-Gesprächssimulationen für die Berufsbildung</title>
+    <title>{title}</title>
     <meta name="description" content="TALK-TECH entwickelt KI-gestützte Gesprächssimulationen für Berufsfachschulen. Lernende erklären einem virtuellen Gegenüber reale Technik, auf Englisch und in Echtzeit. Die ganze Klasse gleichzeitig." />
     <meta property="og:title" content="TALK-TECH · KI-Gesprächssimulationen für die Berufsbildung" />
     <meta property="og:description" content="Jede lernende Person führt ihr eigenes Fachgespräch. Erste Simulation: Mr. Barker visits." />

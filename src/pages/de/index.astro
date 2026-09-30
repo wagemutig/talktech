@@ -1,0 +1,6 @@
+---
+// The main page is German by default and has its own DE/EN switch, so /de/ forwards there.
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<meta http-equiv="refresh" content={`0; url=${b}/`} />
+<link rel="canonical" href={`${b}/`} />

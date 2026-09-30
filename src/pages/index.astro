@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 <Layout>
 <nav class="nav" aria-label="Hauptnavigation">
@@ -40,7 +41,7 @@ import Layout from '../layouts/Layout.astro';
 
     <div class="sim" aria-label="Beispiel eines Gesprächsverlaufs">
       <div class="sim-head">
-        <img src="/avatar-mrbarker.png" alt="">
+        <img src={`${b}/images/avatar_mrbarker.png`} alt="">
         <div><b>Mr. Barker</b><small>MR. BARKER VISITS · EN</small></div>
         <span class="live"><i></i>LIVE</span>
       </div>
@@ -136,7 +137,7 @@ import Layout from '../layouts/Layout.astro';
       </figure>
             <div>
               <blockquote>«I'm interested in buying this assembly. Walk me through it. What does each part do?»</blockquote>
-              <div class="who"><img src="/avatar-mrbarker.png" alt=""><div><b>Mr. Barker</b><small data-en="AI customer · USA">KI-Kunde · USA</small></div></div>
+              <div class="who"><img src={`${b}/images/avatar_mrbarker.png`} alt=""><div><b>Mr. Barker</b><small data-en="AI customer · USA">KI-Kunde · USA</small></div></div>
               <p class="txt" data-en="Learners work from a real engineering drawing. Components are drawn at random, so no two conversations are the same. Built for the FutureMEM reform.">Lernende arbeiten mit einer echten technischen Zeichnung. Die Bauteile werden zufällig gezogen, kein Gespräch gleicht dem anderen. Entwickelt für die Berufsreform FutureMEM.</p>
             </div>
           </div>
@@ -148,19 +149,19 @@ import Layout from '../layouts/Layout.astro';
               <div class="top"><span class="num">01</span><span data-en="~2 min · German">~2 Min. · Deutsch</span></div>
               <h3>Briefing</h3>
               <p data-en="Ms. Goodwill introduces the scenario and the key vocabulary in German, so every learner starts prepared.">Ms. Goodwill führt auf Deutsch ins Szenario und den Fachwortschatz ein, damit alle vorbereitet starten.</p>
-              <div class="agent"><img src="/avatar-msgoodwill.png" alt="">Ms. Goodwill · <span data-en="Mentor">Mentorin</span></div>
+              <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · <span data-en="Mentor">Mentorin</span></div>
             </div>
             <div class="phase">
               <div class="top"><span class="num">02</span><span data-en="~10 min · English">~10 Min. · Englisch</span></div>
               <h3 data-en="Technical conversation">Fachgespräch</h3>
               <p data-en="Ten questions from Mr. Barker. He raises or lowers the level in real time, from naming parts to solving a fault.">Zehn Fragen von Mr. Barker. Er hebt oder senkt das Niveau in Echtzeit, vom Benennen der Teile bis zur Fehlersuche.</p>
-              <div class="agent"><img src="/avatar-mrbarker.png" alt="">Mr. Barker · <span data-en="Customer">Kunde</span></div>
+              <div class="agent"><img src={`${b}/images/avatar_mrbarker.png`} alt="">Mr. Barker · <span data-en="Customer">Kunde</span></div>
             </div>
             <div class="phase">
               <div class="top"><span class="num">03</span><span data-en="~3 min · bilingual">~3 Min. · zweisprachig</span></div>
               <h3 data-en="Reflection">Reflexion</h3>
               <p data-en="Ms. Goodwill analyses the transcript and gives criteria-based feedback on vocabulary, grammar and fluency.">Ms. Goodwill wertet das Transkript aus und gibt kriterienbasiertes Feedback zu Wortschatz, Grammatik und Flüssigkeit.</p>
-              <div class="agent"><img src="/avatar-msgoodwill.png" alt="">Ms. Goodwill · Coach</div>
+              <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · Coach</div>
             </div>
           </div>
         </div>
@@ -258,7 +259,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 data-en="Let Mr. Barker visit your class.">Lassen Sie Mr. Barker Ihre Klasse besuchen.</h2>
       <p data-en="Tell us who you are and what you need. We reply personally, usually within a week.">Sagen Sie uns, wer Sie sind und was Sie brauchen. Wir antworten persönlich, meist innerhalb einer Woche.</p>
     </div>
-    <form id="f" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke/" novalidate>
+    <form id="f" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action={`${b}/danke/`} novalidate>
       <input type="hidden" name="form-name" value="kontakt">
       <p hidden><label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
       <fieldset>
@@ -297,5 +298,5 @@ import Layout from '../layouts/Layout.astro';
     <a class="r" href="https://github.com/wagemutig/techtalk" target="_blank" rel="noopener">GitHub</a>
   </div>
 </footer>
-  <script is:inline src="/site.js"></script>
+  <script is:inline src={`${b}/site.js`}></script>
 </Layout>
