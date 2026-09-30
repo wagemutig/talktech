@@ -12,7 +12,9 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href={`${b}/favicon.svg`} />
-    <link rel="icon" href={`${b}/favicon.ico`} />
+    <link rel="icon" href={`${b}/favicon.ico`} sizes="32x32" />
+    <link rel="apple-touch-icon" href={`${b}/apple-touch-icon.png`} />
+    <link rel="manifest" href={`${b}/site.webmanifest`} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content="TALK-TECH entwickelt KI-gestützte Gesprächssimulationen für Berufsfachschulen. Lernende erklären einem virtuellen Gegenüber reale Technik, auf Englisch und in Echtzeit. Die ganze Klasse gleichzeitig." />
