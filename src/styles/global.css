@@ -253,6 +253,8 @@ footer{border-top:1px solid var(--line);padding-block:28px;font-size:.85rem;colo
 footer .wrap{display:flex;flex-wrap:wrap;gap:12px 28px;align-items:center}
 footer .wordmark{font-size:1rem}
 footer .r{margin-left:auto}
+footer .foot-meta{margin-left:auto}
+@media (max-width:600px){footer .foot-meta{margin-left:0}}
 
 /* condensed layout */
 section{padding-block:72px}
