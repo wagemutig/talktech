@@ -1,456 +1,301 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const team = [
-  { name: 'Oliver Schulthess', role: 'Project Lead & Didactic Concept', initials: 'OS', gradient: 'from-blue-400 to-cyan-300' },
-  { name: 'Jonas Schubnell', role: 'AI Prompt Engineering & Prototyping', initials: 'JS', gradient: 'from-emerald-400 to-teal-300' },
-  { name: 'Aaron Schmid', role: 'Technical Architecture & XR Integration', initials: 'AS', gradient: 'from-violet-400 to-purple-300' },
-  { name: 'Colin Schmid', role: 'Evaluation & Curriculum Alignment', initials: 'CS', gradient: 'from-amber-400 to-orange-300' },
-];
-
-const partners = [
-  { name: 'PHZH — Pädagogische Hochschule Zürich', url: 'https://phzh.ch', desc: 'Academic Partner' },
-  { name: 'afca. ag', url: 'https://afca.ch', desc: 'Technology Partner' },
-  { name: 'IMMERSE', url: 'https://phzh.ch/de/ueber-die-phzh/themen-und-taetigkeiten/projekte/immerse/', desc: 'Innovation Structure' },
-  { name: 'FutureMEM', url: 'https://futuremem.swiss', desc: 'Curriculum Reform' },
-];
-
-const innovations = [
-  {
-    icon: 'M13 10V3L4 14h7v7l9-11h-7z',
-    title: 'Scalable 1:1 Speaking Practice',
-    desc: 'Enables all 24 students in a class to simultaneously engage in individual, adaptive technical conversations — multiplying active speaking time vs. traditional settings.',
-  },
-  {
-    icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z',
-    title: 'Didactically Controlled AI',
-    desc: 'Bloom\'s taxonomy-guided adaptive dialogue prevents free-roaming LLM hallucinations while preserving natural conversational spontaneity and curriculum alignment.',
-  },
-  {
-    icon: 'M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z',
-    title: 'Cross-Platform & XR',
-    desc: 'Deployable via web browser, smartphone, or VR headset (Meta Quest 3, Apple Vision Pro) — flexible for classroom, remote, or immersive learning scenarios.',
-  },
-  {
-    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
-    title: 'No-Code / Low-Code',
-    desc: 'Entirely prompt-configured on the Xara platform — new scenarios, assemblies, or professions can be added without programming, ensuring rapid scalability and cost efficiency.',
-  },
-];
-
-const phases = [
-  {
-    step: '01',
-    title: 'Briefing',
-    time: '~2 min',
-    lang: 'German',
-    color: 'from-blue-500 to-blue-600',
-    text: 'Learners start in German with mentor Ms. Goodwill who explains the scenario: an international business partner wants to purchase the assembly shown on the technical drawing — but requires a precise, professional explanation in English.',
-  },
-  {
-    step: '02',
-    title: 'Technical Conversation',
-    time: '~10 min',
-    lang: 'English',
-    color: 'from-emerald-500 to-emerald-600',
-    text: 'The core simulation. Learners converse with customer Mr. Barker in English, explaining components, functions, and engineering concepts. The AI adapts difficulty in real-time using Bloom\'s taxonomy (K1–K3).',
-  },
-  {
-    step: '03',
-    title: 'Reflection & Coaching',
-    time: '~3 min',
-    lang: 'Bilingual',
-    color: 'from-violet-500 to-violet-600',
-    text: 'The conversation transcript is analyzed. Ms. Goodwill returns for bilingual coaching — guidance in German, technical corrections in English — guiding learners through systematic self-assessment.',
-  },
-];
-
-const levels = [
-  { id: 'K1', name: 'Knowledge', desc: 'Identify and name technical components on the engineering drawing', color: 'bg-emerald-500/20 text-emerald-300 border-emerald-500/30' },
-  { id: 'K2', name: 'Understanding', desc: 'Explain mechanical functions, material properties, and why specific components are used', color: 'bg-amber-500/20 text-amber-300 border-amber-500/30' },
-  { id: 'K3', name: 'Application', desc: 'Solve realistic troubleshooting scenarios — diagnose faults and propose engineering solutions', color: 'bg-rose-500/20 text-rose-300 border-rose-500/30' },
-];
 ---
-
 <Layout>
-  <!-- ════════ NAV / HEADER ════════ -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass">
-    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-      <a href="#" class="text-xl font-bold gradient-text tracking-tight">TALK-TECH</a>
-      <div class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
-        <a href="#problem" class="hover:text-white transition-colors">Problem</a>
-        <a href="#solution" class="hover:text-white transition-colors">Solution</a>
-        <a href="#adaptive" class="hover:text-white transition-colors">Adaptive AI</a>
-        <a href="#avatars" class="hover:text-white transition-colors">Avatars</a>
-        <a href="#innovation" class="hover:text-white transition-colors">Innovation</a>
-        <a href="#team" class="hover:text-white transition-colors">Team</a>
-      </div>
-      <a href="#partners" class="bg-brand-600 hover:bg-brand-500 text-white text-sm font-semibold px-5 py-2 rounded-full transition-all">Partners</a>
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="wordmark" href="#top">TALK-TECH</a>
+    <div class="nav-links">
+      <a href="#simulationen" data-en="Simulations">Simulationen</a>
+      <a href="#mr-barker" data-en="Mr. Barker visits">Mr. Barker visits</a>
+      <a href="#pilot" data-en="Pilot">Pilot</a>
+      <a href="#team" data-en="Team">Team</a>
     </div>
-  </nav>
+    <div class="lang" role="group" aria-label="Sprache">
+      <button type="button" id="l-de" aria-pressed="true">DE</button>
+      <button type="button" id="l-en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-primary" href="#kontakt" data-en="Request a demo">Demo anfragen</a>
+  </div>
+</nav>
 
-  <!-- ════════ HERO ════════ -->
-  <section class="gradient-bg relative overflow-hidden min-h-screen flex items-center">
-    <div class="absolute inset-0 opacity-10">
-      <div class="absolute top-20 left-10 w-72 h-72 bg-brand-400 rounded-full blur-3xl" />
-      <div class="absolute bottom-20 right-10 w-96 h-96 bg-accent-400 rounded-full blur-3xl" />
-    </div>
-    <div class="max-w-6xl mx-auto px-6 py-32 relative z-10">
-      <div class="max-w-3xl">
-        <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 rounded-full px-4 py-1.5 text-xs font-medium text-slate-300 mb-8">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-          hackAstone Project · PHZH × afca.ag
-        </div>
-        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
-          <span class="gradient-text">TALK-TECH</span>
-        </h1>
-        <p class="text-xl md:text-2xl font-light text-slate-300 mb-4 leading-relaxed">
-          AI-Powered Conversation Simulation for<br class="hidden md:block" />
-          <span class="font-semibold text-white">Technical English Education</span>
-        </p>
-        <p class="text-base md:text-lg text-slate-400 leading-relaxed mb-10 max-w-2xl">
-          An immersive, adaptive learning prototype combining generative AI and XR to enable every student
-          in a vocational class to simultaneously practice realistic, one-to-one technical conversations in English.
-        </p>
-        <div class="flex flex-wrap gap-4">
-          <a href="#solution" class="bg-brand-600 hover:bg-brand-500 text-white font-semibold px-8 py-3 rounded-full transition-all shadow-lg shadow-brand-600/25">
-            Explore the Concept
-          </a>
-          <a href="#team" class="glass hover:bg-white/10 text-slate-200 font-semibold px-8 py-3 rounded-full transition-all">
-            Meet the Team
-          </a>
-        </div>
+<header class="hero" id="top">
+  <canvas id="rain" aria-hidden="true"></canvas>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow hero-lead" data-en="AI conversation simulations for vocational education">KI-Gesprächssimulationen für die Berufsbildung</p>
+      <h1 data-en="Every apprentice gets their <em>own technical conversation.</em>">Jede lernende Person führt ihr <em>eigenes Fachgespräch.</em></h1>
+      <p class="lede" data-en="TALK-TECH builds AI-driven conversation simulations for vocational schools. For example, apprentices explain real technology to a virtual counterpart, in English and in real time. The whole class at once.">TALK-TECH entwickelt KI-gestützte Gesprächssimulationen für Berufsfachschulen. So erklären Lernende beispielsweise einem virtuellen Gegenüber reale Technik, auf Englisch und in Echtzeit. Die ganze Klasse gleichzeitig.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#kontakt" data-en="Request a demo →">Demo anfragen →</a>
+        <a class="btn btn-ghost" href="#mr-barker" data-en="See the simulation">Simulation ansehen</a>
       </div>
+      <dl class="hero-facts">
+        <div><dt>24</dt><dd data-en="learners at once">Lernende gleichzeitig</dd></div>
+        <div><dt data-en="74.3">74,3</dt><dd data-en="SUS score in pilot">SUS-Score im Pilot</dd></div>
+        <div><dt>3</dt><dd data-en="devices: web, mobile, VR">Geräte: Web, Mobile, VR</dd></div>
+        <div><dt>0</dt><dd data-en="installations">Installationen</dd></div>
+      </dl>
     </div>
-    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-      </svg>
-    </div>
-  </section>
 
-  <!-- ════════ PROBLEM ════════ -->
-  <section id="problem" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-3xl mx-auto text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">The Challenge</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">
-          Why Technical English Training Needs Reinvention
-        </h2>
+    <div class="sim" aria-label="Beispiel eines Gesprächsverlaufs">
+      <div class="sim-head">
+        <img src="/avatar-mrbarker.png" alt="">
+        <div><b>Mr. Barker</b><small>MR. BARKER VISITS · EN</small></div>
+        <span class="live"><i></i>LIVE</span>
       </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <div class="glass rounded-2xl p-8 border border-red-500/10">
-          <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">1 Teacher · 24 Students</h3>
-          <p class="text-slate-400 leading-relaxed">
-            Vocational classes of up to 24 learners with a single teacher make individual speaking practice nearly impossible.
-            Time for one-to-one conversation coaching is severely limited.
-          </p>
-        </div>
-        <div class="glass rounded-2xl p-8 border border-red-500/10">
-          <div class="w-12 h-12 rounded-xl bg-red-500/10 flex items-center justify-center mb-5">
-            <svg class="w-6 h-6 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5" />
-            </svg>
-          </div>
-          <h3 class="text-xl font-bold text-white mb-3">Double Hurdle: Language &amp; Engineering</h3>
-          <p class="text-slate-400 leading-relaxed">
-            Learners must simultaneously master complex mechanical engineering concepts <em>and</em> explain them
-            precisely in a foreign language — requiring intensive, authentic practice that traditional formats cannot deliver.
-          </p>
-        </div>
+      <div class="meter"><span class="on"></span><span class="on"></span><span class="on"></span></div>
+      <div class="meter-l"><span>K1</span><span>K2</span><span data-en="K3 · question 7/10">K3 · Frage 7/10</span></div>
+      <div class="msgs">
+        <div class="msg b"><span class="tag t1">K1</span>Which component is located at position 3?</div>
+        <div class="msg l">That's the radial shaft seal. It keeps the oil inside the housing.</div>
+        <div class="msg b"><span class="tag t3">K3</span>The gearbox is overheating. Based on the drawing, what could be the cause?</div>
       </div>
+      <div class="typing"><i></i><i></i><i></i>&nbsp;<span data-en="Learner is answering">Lernende:r antwortet</span></div>
     </div>
-  </section>
+  </div>
+</header>
 
-  <!-- ════════ SOLUTION / 3-PHASE OVERVIEW ════════ -->
-  <section id="solution" class="py-24 bg-slate-900/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">The Solution</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-          Three-Phase Adaptive Learning Simulation
-        </h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">
-          A process-oriented structure that guides every learner from preparation through active conversation to reflective self-assessment.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-3 gap-6">
-        {phases.map((phase) => (
-          <div class="glass rounded-2xl p-8 border border-white/5 relative animate-in">
-            <div class={`inline-flex items-center gap-2 bg-gradient-to-r ${phase.color} px-3 py-1 rounded-full text-xs font-bold text-white mb-5`}>
-              <span>{phase.step}</span>
-              <span class="w-px h-3 bg-white/30" />
-              <span>{phase.time}</span>
-              <span class="w-px h-3 bg-white/30" />
-              <span>{phase.lang}</span>
-            </div>
-            <h3 class="text-xl font-bold text-white mb-3">{phase.title}</h3>
-            <p class="text-slate-400 leading-relaxed text-sm">{phase.text}</p>
-          </div>
-        ))}
-      </div>
-      <div class="mt-12 glass rounded-2xl p-8 border border-brand-500/20 text-center">
-        <div class="max-w-3xl mx-auto">
-          <h3 class="text-lg font-semibold text-white mb-3">Built on Xara — No-Code Configuration</h3>
-          <p class="text-slate-400 leading-relaxed text-sm">
-            The entire simulation runs on the Xara XR platform, powered by Azure OpenAI GPT-4o for conversational intelligence
-            and Azure Speech Services for low-latency voice processing. Hosted entirely in the Microsoft Azure cloud,
-            ensuring compliance with Swiss data protection requirements for education.
-          </p>
-        </div>
-      </div>
+<section id="simulationen">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow" data-en="Simulations">Simulationen</p>
+      <h2 data-en="One platform. Many conversations.">Eine Plattform. Viele Gespräche.</h2>
+      <p class="naming"><span class="brand">TALK-TECH</span><span class="sep">:</span> <span data-en="Format">Format</span> <span class="sep">–</span> <span data-en="Scenario">Szenario</span><br><span class="naming-sub" data-en="Your tailor-made simulations run on one clear platform. Teachers see at a glance which topics a simulation trains.">Ihre massgeschneiderten Simulationen laufen auf der übersichtlichen Plattform. Lehrpersonen sehen auf einen Blick, welche Themen eine Simulation trainiert.</span></p>
     </div>
-  </section>
 
-  <!-- ════════ ADAPTIVE AI ════════ -->
-  <section id="adaptive" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid md:grid-cols-2 gap-12 items-center">
+    <div class="products">
+      <article class="card featured">
+        <span class="status s-live" data-en="Piloted · June 2026">Pilotiert · Juni 2026</span>
+        <p class="kicker" data-en="TALK-TECH: Technical English Conversation">TALK-TECH: Fachgespräch Technisches Englisch</p>
+        <h3>Mr. Barker visits</h3>
+        <p data-en="An American business partner visits the training company and wants a full technical presentation of an assembly. In English, right now.">Ein US-amerikanischer Geschäftspartner besucht den Lehrbetrieb und will eine vollständige technische Präsentation einer Baugruppe. Auf Englisch, sofort.</p>
+        <div class="chips">
+          <span data-en="Polymechanics">Polymechaniker:in</span><span data-en="Automation">Automatiker:in</span><span data-en="EN · B2">EN · B2</span><span data-en="~15 min">~15 Min.</span>
+        </div>
+        <a class="btn btn-primary" href="#mr-barker" data-en="Explore simulation">Simulation entdecken</a>
+      </article>
+
+      <article class="card">
+        <span class="status s-req" data-en="On request">Auf Anfrage</span>
+        <p class="kicker" data-en="TALK-TECH: your format – your scenario">TALK-TECH: Ihr Format – Ihr Szenario</p>
+        <h3 data-en="Your scenario">Ihr Szenario</h3>
+        <p data-en="Scenarios are configured by prompt on the no-code platform Xara. Another assembly, profession or language needs no custom software. For example a customer complaint, a shift handover or a supplier call.">Szenarien werden per Prompt auf der No-Code-Plattform Xara konfiguriert. Eine andere Baugruppe, ein anderer Beruf oder eine andere Sprache braucht keine Eigenentwicklung. Etwa eine Kundenreklamation, eine Schichtübergabe oder ein Lieferantengespräch.</p>
+        <a class="btn btn-ghost" href="#kontakt" data-en="Discuss a scenario">Szenario besprechen</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="mr-barker" class="tight">
+  <div class="wrap">
+    <div class="explorer">
+      <div class="ex-head">
         <div>
-          <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">Adaptive AI Dialogue</span>
-          <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-6">
-            Real-Time Adaptation via Bloom's Taxonomy
-          </h2>
-          <p class="text-slate-400 leading-relaxed mb-8">
-            The conversation engine dynamically adjusts difficulty in real-time based on learner responses. 
-            Starting at knowledge level, the AI escalates or de-escalates across three cognitive tiers —
-            ensuring each student is challenged at their individual performance edge without being overwhelmed or under-stimulated.
-          </p>
-          <div class="space-y-4">
-            {levels.map((level) => (
-              <div class={`rounded-xl border p-4 ${level.color}`}>
-                <div class="flex items-center gap-3 mb-1">
-                  <span class="font-bold text-sm">{level.id}</span>
-                  <span class="font-semibold text-sm">{level.name}</span>
-                </div>
-                <p class="text-xs text-slate-400">{level.desc}</p>
-              </div>
-            ))}
-          </div>
-          <p class="text-slate-500 text-sm mt-6 leading-relaxed">
-            After two introductory K1 questions, every response determines the next difficulty level.
-            Each conversation randomly selects components from the drawing pool, ensuring no two sessions are identical.
-          </p>
+          <p class="eyebrow">TALK-TECH: <span data-en="Technical English Conversation">Fachgespräch Technisches Englisch</span></p>
+          <h2>Mr. Barker visits</h2>
         </div>
-        <div class="glass rounded-2xl p-8 border border-white/5">
-          <h3 class="text-lg font-semibold text-white mb-6">Adaptive Flow</h3>
-          <div class="space-y-6">
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 rounded-full bg-emerald-500/20 flex items-center justify-center shrink-0 mt-1">
-                <span class="text-emerald-300 font-bold text-xs">K1</span>
-              </div>
-              <div>
-                <p class="text-sm font-medium text-white mb-1">Component Identification</p>
-                <p class="text-xs text-slate-400 italic">"Which component is located at position number 3?"</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 rounded-full bg-amber-500/20 flex items-center justify-center shrink-0 mt-1">
-                <span class="text-amber-300 font-bold text-xs">K2</span>
-              </div>
-              <div>
-                <p class="text-sm font-medium text-white mb-1">Functional Understanding</p>
-                <p class="text-xs text-slate-400 italic">"Why do we use a radial shaft seal at this specific position?"</p>
-              </div>
-            </div>
-            <div class="flex items-start gap-4">
-              <div class="w-8 h-8 rounded-full bg-rose-500/20 flex items-center justify-center shrink-0 mt-1">
-                <span class="text-rose-300 font-bold text-xs">K3</span>
-              </div>
-              <div>
-                <p class="text-sm font-medium text-white mb-1">Troubleshooting</p>
-                <p class="text-xs text-slate-400 italic">"The gearbox is overheating. Based on the drawing, what could be the technical cause?"</p>
-              </div>
-            </div>
-          </div>
-          <div class="mt-6 pt-6 border-t border-white/5">
-            <div class="flex items-center gap-2 text-sm text-slate-400">
-              <svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-              </svg>
-              <span>Each simulation ends after exactly 10 questions, then transitions to reflection</span>
-            </div>
-          </div>
+        <div class="tabs" role="tablist" aria-label="Mr. Barker visits">
+          <button class="tab" role="tab" id="t-szenario" aria-controls="p-szenario" aria-selected="true" data-en="Scenario">Szenario</button>
+          <button class="tab" role="tab" id="t-ablauf" aria-controls="p-ablauf" aria-selected="false" tabindex="-1" data-en="Flow">Ablauf</button>
+          <button class="tab" role="tab" id="t-ki" aria-controls="p-ki" aria-selected="false" tabindex="-1" data-en="Adaptive AI">Adaptive KI</button>
+          <button class="tab" role="tab" id="t-pilot" aria-controls="p-pilot" aria-selected="false" tabindex="-1" data-en="Pilot">Pilot</button>
+          <button class="tab" role="tab" id="t-daten" aria-controls="p-daten" aria-selected="false" tabindex="-1" data-en="Data sheet">Datenblatt</button>
         </div>
       </div>
-    </div>
-  </section>
 
-  <!-- ════════ AVATARS ════════ -->
-  <section id="avatars" class="py-24 bg-slate-900/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">AI Avatars</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-          Two Avatars, Complementary Roles
-        </h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">
-          Distinct AI personalities scaffold the learning journey — from guided preparation through challenging dialogue to reflective coaching.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-8">
-        <!-- Ms. Goodwill -->
-        <div class="glass rounded-2xl p-8 border border-blue-500/10 avatar-card transition-all duration-300">
-          <div class="flex items-start gap-5 mb-6">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-400 to-cyan-300 flex items-center justify-center shrink-0">
-              <span class="text-white font-bold text-xl">MG</span>
-            </div>
+      <div class="panels">
+        <div class="panel" role="tabpanel" id="p-szenario" aria-labelledby="t-szenario">
+          <div class="scenario">
+      <figure class="drawing" style="margin:0">
+        <svg viewBox="0 0 520 300" role="img" aria-label="Schnittzeichnung einer Getriebewelle mit Positionsnummern">
+          <g fill="none" stroke="var(--ink)" stroke-width="1.6">
+            <rect x="120" y="70" width="240" height="160" fill="var(--surface)"/>
+            <path d="M120 90 L360 90 M120 210 L360 210" stroke="var(--muted)" stroke-width=".8" stroke-dasharray="6 4"/>
+            <rect x="40" y="136" width="420" height="28" fill="var(--paper)"/>
+            <rect x="140" y="112" width="34" height="76" fill="var(--surface)"/>
+            <line x1="140" y1="112" x2="174" y2="188" stroke-width=".8"/><line x1="174" y1="112" x2="140" y2="188" stroke-width=".8"/>
+            <rect x="306" y="112" width="34" height="76" fill="var(--surface)"/>
+            <line x1="306" y1="112" x2="340" y2="188" stroke-width=".8"/><line x1="340" y1="112" x2="306" y2="188" stroke-width=".8"/>
+            <rect x="206" y="84" width="68" height="132" fill="var(--surface)"/>
+            <path d="M206 96 h68 M206 108 h68 M206 192 h68 M206 204 h68" stroke-width=".7"/>
+            <rect x="360" y="124" width="16" height="52" fill="var(--surface)"/>
+            <path d="M360 124 l16 12 M360 176 l16 -12" stroke-width=".8"/>
+            <rect x="100" y="120" width="20" height="60" fill="var(--surface)"/>
+          </g>
+          <line x1="20" y1="150" x2="500" y2="150" stroke="var(--blue)" stroke-width=".8" stroke-dasharray="14 4 3 4"/>
+          <g font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" text-anchor="middle" fill="var(--ink)">
+            <g stroke="var(--ink)" stroke-width="1"><line x1="240" y1="84" x2="240" y2="40"/><line x1="157" y1="112" x2="130" y2="40"/><line x1="368" y1="124" x2="420" y2="60"/><line x1="323" y1="188" x2="330" y2="262"/><line x1="70" y1="150" x2="60" y2="240"/><line x1="110" y1="180" x2="140" y2="262"/></g>
+            <g fill="var(--surface)" stroke="var(--ink)" stroke-width="1.4"><circle cx="130" cy="30" r="13"/><circle cx="240" cy="30" r="13"/><circle cx="430" cy="50" r="13"/><circle cx="330" cy="272" r="13"/><circle cx="60" cy="250" r="13"/><circle cx="140" cy="272" r="13"/></g>
+            <text x="130" y="35">1</text><text x="240" y="35">2</text>
+            <circle cx="430" cy="50" r="13" fill="var(--blue)" stroke="none"/><text x="430" y="55" fill="#fff">3</text>
+            <text x="330" y="277">4</text><text x="60" y="255">5</text><text x="140" y="277">6</text>
+          </g>
+        </svg>
+        <figcaption><span data-en="Assembly: gearbox output shaft (schematic)">Baugruppe: Getriebe-Abtriebswelle (schematisch)</span><span data-en="Pos. 3 = radial shaft seal">Pos. 3 = Radial-Wellendichtring</span></figcaption>
+      </figure>
             <div>
-              <h3 class="text-xl font-bold text-white">Ms. Goodwill</h3>
-              <p class="text-sm text-blue-300 font-medium">Mentor &amp; Coach</p>
-            </div>
-          </div>
-          <div class="space-y-4 text-sm text-slate-400">
-            <div class="glass rounded-xl p-4 border border-white/5">
-              <span class="font-semibold text-white block mb-1">Briefing Phase</span>
-              <span>Instructs in German, sets the scenario, ensures every learner understands the context and vocabulary requirements before starting.</span>
-            </div>
-            <div class="glass rounded-xl p-4 border border-white/5">
-              <span class="font-semibold text-white block mb-1">Reflection Phase</span>
-              <span>Analyzes the conversation transcript using B2 criteria (vocabulary, grammar, fluency). Coaching in German, technical corrections in English. Guides self-assessment through targeted questions.</span>
+              <blockquote>«I'm interested in buying this assembly. Walk me through it. What does each part do?»</blockquote>
+              <div class="who"><img src="/avatar-mrbarker.png" alt=""><div><b>Mr. Barker</b><small data-en="AI customer · USA">KI-Kunde · USA</small></div></div>
+              <p class="txt" data-en="Learners work from a real engineering drawing. Components are drawn at random, so no two conversations are the same. Built for the FutureMEM reform.">Lernende arbeiten mit einer echten technischen Zeichnung. Die Bauteile werden zufällig gezogen, kein Gespräch gleicht dem anderen. Entwickelt für die Berufsreform FutureMEM.</p>
             </div>
           </div>
         </div>
-        <!-- Mr. Barker -->
-        <div class="glass rounded-2xl p-8 border border-emerald-500/10 avatar-card transition-all duration-300">
-          <div class="flex items-start gap-5 mb-6">
-            <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-emerald-400 to-teal-300 flex items-center justify-center shrink-0">
-              <span class="text-white font-bold text-xl">MB</span>
+
+        <div class="panel" role="tabpanel" id="p-ablauf" aria-labelledby="t-ablauf" hidden>
+          <div class="phases">
+            <div class="phase">
+              <div class="top"><span class="num">01</span><span data-en="~2 min · German">~2 Min. · Deutsch</span></div>
+              <h3>Briefing</h3>
+              <p data-en="Ms. Goodwill introduces the scenario and the key vocabulary in German, so every learner starts prepared.">Ms. Goodwill führt auf Deutsch ins Szenario und den Fachwortschatz ein, damit alle vorbereitet starten.</p>
+              <div class="agent"><img src="/avatar-msgoodwill.png" alt="">Ms. Goodwill · <span data-en="Mentor">Mentorin</span></div>
             </div>
+            <div class="phase">
+              <div class="top"><span class="num">02</span><span data-en="~10 min · English">~10 Min. · Englisch</span></div>
+              <h3 data-en="Technical conversation">Fachgespräch</h3>
+              <p data-en="Ten questions from Mr. Barker. He raises or lowers the level in real time, from naming parts to solving a fault.">Zehn Fragen von Mr. Barker. Er hebt oder senkt das Niveau in Echtzeit, vom Benennen der Teile bis zur Fehlersuche.</p>
+              <div class="agent"><img src="/avatar-mrbarker.png" alt="">Mr. Barker · <span data-en="Customer">Kunde</span></div>
+            </div>
+            <div class="phase">
+              <div class="top"><span class="num">03</span><span data-en="~3 min · bilingual">~3 Min. · zweisprachig</span></div>
+              <h3 data-en="Reflection">Reflexion</h3>
+              <p data-en="Ms. Goodwill analyses the transcript and gives criteria-based feedback on vocabulary, grammar and fluency.">Ms. Goodwill wertet das Transkript aus und gibt kriterienbasiertes Feedback zu Wortschatz, Grammatik und Flüssigkeit.</p>
+              <div class="agent"><img src="/avatar-msgoodwill.png" alt="">Ms. Goodwill · Coach</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-ki" aria-labelledby="t-ki" hidden>
+          <div class="bloom">
+            <div class="intro">
+              <h3 data-en="Every learner at their own edge.">Jede lernende Person an ihrer eigenen Grenze.</h3>
+              <p data-en="After two warm-up questions at K1, each answer decides the next level along Bloom's taxonomy. Strong learners get pushed, others get support.">Nach zwei Einstiegsfragen auf K1 entscheidet jede Antwort über die nächste Stufe der Bloom'schen Taxonomie. Starke Lernende werden gefordert, andere gestützt.</p>
+              <div class="scale" aria-hidden="true"></div>
+              <div class="scale-l"><span data-en="K1 · know">K1 · wissen</span><span data-en="K3 · apply">K3 · anwenden</span></div>
+            </div>
+            <div class="levels">
+              <div class="level"><span class="k">K1</span><div><b data-en="Knowledge">Wissen</b><p data-en="Identify and name components on the drawing.">Bauteile auf der Zeichnung erkennen und benennen.</p><q>Which component is located at position number 3?</q></div></div>
+              <div class="level"><span class="k">K2</span><div><b data-en="Understanding">Verstehen</b><p data-en="Explain functions, materials and why a part is used.">Funktionen, Werkstoffe und Einsatzgründe erklären.</p><q>Why do we use a radial shaft seal at this specific position?</q></div></div>
+              <div class="level"><span class="k">K3</span><div><b data-en="Application">Anwenden</b><p data-en="Diagnose a fault and propose a solution.">Einen Fehler diagnostizieren und eine Lösung vorschlagen.</p><q>The gearbox is overheating. Based on the drawing, what could be the cause?</q></div></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel" role="tabpanel" id="p-pilot" aria-labelledby="t-pilot" hidden>
+          <div class="pilot">
             <div>
-              <h3 class="text-xl font-bold text-white">Mr. Barker</h3>
-              <p class="text-sm text-emerald-300 font-medium">International Business Partner</p>
+              <p class="p-intro" data-en="A class of prospective polymechanics at Berufsschule Rüti ran the simulation on their own in June 2026 and rated it with the System Usability Scale.">Eine Klasse angehender Polymechaniker:innen der Berufsschule Rüti führte die Simulation im Juni 2026 selbstständig durch und bewertete sie mit der System Usability Scale.</p>
+              <div class="chart">
+                <div class="bar"><label>TALK-TECH</label><div class="track"><div class="fill us" style="width:74.3%"><span data-en="74.3">74,3</span></div></div></div>
+                <div class="bar"><label data-en="Benchmark">Benchmark</label><div class="track"><div class="fill bm" style="width:68%">68</div></div></div>
+                <div class="axis"><div class="spacer"></div><div><span style="left:0">0</span><span style="left:25%">25</span><span style="left:50%">50</span><span style="left:75%">75</span><span style="left:100%">100</span></div></div>
+              </div>
+              <div class="quote">
+                <p data-en="«It was a pretty normal conversation, like it would have been with a teacher.»">«Es war eigentlich ein ziemlich normales Gespräch, wie es auch mit einem Lehrer gewesen wäre.»</p>
+                <small data-en="Apprentice, polymechanics">Lernender, Polymechanik</small>
+              </div>
             </div>
-          </div>
-          <div class="space-y-4 text-sm text-slate-400">
-            <div class="glass rounded-xl p-4 border border-white/5">
-              <span class="font-semibold text-white block mb-1">Conversation Phase</span>
-              <span>English-only dialogue partner. Acts as an experienced, technically savvy sales partner who wants to fully understand the engineering assembly.</span>
-            </div>
-            <div class="glass rounded-xl p-4 border border-white/5">
-              <span class="font-semibold text-white block mb-1">Adaptive Interaction</span>
-              <span>No explicit correction or grading — instead, responds with realistic follow-up questions when explanations are imprecise (<span class="italic text-emerald-200">"I see the part, but could you clarify its exact function?"</span>), forcing spontaneous, action-oriented replies.</span>
+            <div class="findings">
+              <p class="eyebrow" data-en="What we learned">Was wir gelernt haben</p>
+              <div class="finding plus"><i>+</i><span data-en="The class ran the simulation completely on its own.">Die Klasse bediente die Simulation komplett selbstständig.</span></div>
+              <div class="finding plus"><i>+</i><span data-en="Fast learning curve and a coherent system.">Schnelle Lernkurve und hohe Systemkohärenz.</span></div>
+              <div class="finding minus"><i>–</i><span data-en="Speech recognition struggled at times with classroom noise.">Die Spracherkennung stiess bei Lärm im Klassenzimmer vereinzelt an Grenzen.</span></div>
+              <div class="finding minus"><i>–</i><span data-en="The difficulty has to match the class.">Der Schwierigkeitsgrad muss zur Klasse passen.</span></div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </section>
 
-  <!-- ════════ INNOVATION ════════ -->
-  <section id="innovation" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">What Makes It Different</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-          Innovation Value
-        </h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">
-          TALK-TECH transforms language instruction from a broadcast model into a personalized, immersive experience — without requiring custom software development.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-2 gap-6">
-        {innovations.map((item) => (
-          <div class="glass rounded-2xl p-6 border border-white/5 flex gap-4">
-            <div class="w-10 h-10 rounded-xl bg-brand-500/10 flex items-center justify-center shrink-0 mt-1">
-              <svg class="w-5 h-5 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d={item.icon} />
-              </svg>
-            </div>
-            <div>
-              <h3 class="text-lg font-semibold text-white mb-2">{item.title}</h3>
-              <p class="text-sm text-slate-400 leading-relaxed">{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-      <div class="mt-10 glass rounded-2xl p-8 border border-brand-500/10 text-center">
-        <p class="text-slate-300 leading-relaxed max-w-3xl mx-auto">
-          In May 2026, initial exploratory talks began with <strong class="text-white">Swissmem</strong> (the Swiss MEM industry association) 
-          regarding integration of the TALK-TECH simulation into the new FutureMEM teaching materials. 
-          Post-summer 2026, a follow-up meeting will define the roadmap for nationwide implementation across Swiss vocational education.
-        </p>
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ TEAM ════════ -->
-  <section id="team" class="py-24 bg-slate-900/50">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">The Team</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-          Built by Educators &amp; Engineers
-        </h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">
-          A multidisciplinary team from the Zurich University of Teacher Education (PHZH) 
-          combining pedagogical expertise, AI engineering, and industry knowledge.
-        </p>
-      </div>
-      <div class="grid md:grid-cols-4 gap-6">
-        {team.map((member) => (
-          <div class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300">
-            <div class={`w-20 h-20 mx-auto rounded-2xl bg-gradient-to-br ${member.gradient} flex items-center justify-center mb-4`}>
-              <span class="text-white font-bold text-2xl">{member.initials}</span>
-            </div>
-            <h3 class="text-lg font-semibold text-white">{member.name}</h3>
-            <p class="text-sm text-slate-400 mt-1">{member.role}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ PARTNERS ════════ -->
-  <section id="partners" class="py-24 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="text-center mb-16">
-        <span class="text-brand-400 font-semibold text-sm tracking-widest uppercase">Collaborators</span>
-        <h2 class="text-3xl md:text-4xl font-bold text-white mt-3 mb-4">
-          Partners &amp; Ecosystem
-        </h2>
-        <p class="text-slate-400 max-w-2xl mx-auto">
-          TALK-TECH was developed within the IMMERSE innovation structure, funded by the Digitalization Initiative of the Zurich Universities (DIZH).
-        </p>
-      </div>
-      <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-6">
-        {partners.map((partner) => (
-          <a href={partner.url} target="_blank" class="glass rounded-2xl p-6 border border-white/5 text-center hover:bg-white/[0.08] transition-all duration-300 group block">
-            <div class="w-14 h-14 mx-auto rounded-xl bg-brand-500/10 flex items-center justify-center mb-4 group-hover:bg-brand-500/20 transition-colors">
-              <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
-              </svg>
-            </div>
-            <h3 class="text-sm font-semibold text-white group-hover:text-brand-400 transition-colors">{partner.name}</h3>
-            <p class="text-xs text-slate-500 mt-2">{partner.desc}</p>
-          </a>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- ════════ FOOTER ════════ -->
-  <footer class="border-t border-white/5 py-12 bg-slate-950">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
-        <div>
-          <span class="text-xl font-bold gradient-text">TALK-TECH</span>
-          <p class="text-sm text-slate-500 mt-1">AI-Powered Technical English Training</p>
-        </div>
-        <div class="text-center md:text-right">
-          <p class="text-sm text-slate-500">
-            A hackAstone project by the Zurich University of Teacher Education (PHZH)
-          </p>
-          <p class="text-xs text-slate-600 mt-1">
-            &copy; {new Date().getFullYear()} TALK-TECH Team. All rights reserved.
-          </p>
+        <div class="panel" role="tabpanel" id="p-daten" aria-labelledby="t-daten" hidden>
+          <div class="tbl"><table>
+        <tr><th data-en="Target group">Zielgruppe</th><td data-en="Polymechanics and automation apprentices, MEM professions">Polymechaniker:innen, Automatiker:innen, MEM-Berufe</td></tr>
+        <tr><th data-en="Curriculum">Lehrplan</th><td data-en="FutureMEM, technical English, language level B2">FutureMEM, Technisches Englisch, Sprachniveau B2</td></tr>
+        <tr><th data-en="Duration">Dauer</th><td data-en="approx. 15 min per learner (briefing, 10 questions, reflection)">ca. 15 Min. pro Person (Briefing, 10 Fragen, Reflexion)</td></tr>
+        <tr><th data-en="Devices">Geräte</th><td data-en="Browser (classroom), smartphone, VR headset. No installation.">Browser (Klassenzimmer), Smartphone, VR-Brille. Keine Installation.</td></tr>
+        <tr><th data-en="AI agents">KI-Agenten</th><td data-en="Ms. Goodwill (mentor and coach), Mr. Barker (customer)">Ms. Goodwill (Mentorin und Coach), Mr. Barker (Kunde)</td></tr>
+        <tr><th data-en="Technology">Technologie</th><td>Xara XR · Azure OpenAI GPT-4o · Azure Speech Services</td></tr>
+        <tr><th data-en="Teaching material">Begleitmaterial</th><td data-en="Worksheet with technical drawing, vocabulary list">Arbeitsblatt mit technischer Zeichnung, Wortliste</td></tr>
+          </table></div>
         </div>
       </div>
+
+      <div class="ex-foot">
+        <button type="button" class="step" id="prev" aria-label="Vorheriger Tab">←</button>
+        <span class="count mono" id="count">1 / 5</span>
+        <button type="button" class="step" id="next" aria-label="Nächster Tab"><span id="next-l">Ablauf</span> →</button>
+      </div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section id="team" class="tight">
+  <div class="wrap about">
+    <div>
+      <p class="eyebrow">Team</p>
+      <h2 data-en="Built by teachers, for teachers.">Gebaut von Lehrpersonen für Lehrpersonen.</h2>
+      <p data-en="We teach at Swiss vocational schools and train at PHZH. TALK-TECH started in the IMMERSE innovation structure and was presented at hackAstone 2026.">Wir unterrichten an Schweizer Berufsfachschulen und bilden uns an der PH Zürich weiter. TALK-TECH entstand in der Innovationsstruktur IMMERSE und am hackAstone 2026.</p>
+    </div>
+    <div>
+      <ul class="team">
+        <li><span class="ini">OS</span><b>Oliver Schulthess</b></li>
+        <li><span class="ini">JS</span><b>Jonas Schubnell</b></li>
+        <li><span class="ini">AS</span><b>Aaron Schmid</b></li>
+        <li><span class="ini">CS</span><b>Colin Schmid</b></li>
+      </ul>
+      <p class="partners"><span class="eyebrow" data-en="Partners">Partner</span>
+        <a href="https://phzh.ch" target="_blank" rel="noopener">PHZH</a>
+        <a href="https://afca.ch" target="_blank" rel="noopener">afca. ag</a>
+        <a href="https://phzh.ch/de/ueber-die-phzh/themen-und-taetigkeiten/projekte/immerse/" target="_blank" rel="noopener">IMMERSE</a>
+        <a href="https://futuremem.swiss" target="_blank" rel="noopener">FutureMEM</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section id="kontakt">
+  <div class="wrap contact">
+    <div class="side">
+      <p class="eyebrow" data-en="Contact">Kontakt</p>
+      <h2 data-en="Let Mr. Barker visit your class.">Lassen Sie Mr. Barker Ihre Klasse besuchen.</h2>
+      <p data-en="Tell us who you are and what you need. We reply personally, usually within a week.">Sagen Sie uns, wer Sie sind und was Sie brauchen. Wir antworten persönlich, meist innerhalb einer Woche.</p>
+    </div>
+    <form id="f" name="kontakt" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/danke/" novalidate>
+      <input type="hidden" name="form-name" value="kontakt">
+      <p hidden><label>Nicht ausfüllen: <input name="bot-field" tabindex="-1" autocomplete="off"></label></p>
+      <fieldset>
+        <legend data-en="I'm writing as">Ich schreibe als</legend>
+        <div class="aud">
+          <label><input type="radio" name="aud" id="a-school" value="Berufsfachschule" checked><span class="opt"><b data-en="Vocational school">Berufsfachschule</b><small data-en="Teacher or school management">Lehrperson oder Schulleitung</small></span></label>
+          <label><input type="radio" name="aud" id="a-assoc" value="Verband / Lehrmittel"><span class="opt"><b data-en="Association / publisher">Verband / Lehrmittel</b><small data-en="Integration into teaching materials">Integration in Lehrmittel</small></span></label>
+          <label><input type="radio" name="aud" id="a-comp" value="Lehrbetrieb"><span class="opt"><b data-en="Training company">Lehrbetrieb</b><small data-en="Scenarios for your apprentices">Szenarien für Ihre Lernenden</small></span></label>
+        </div>
+      </fieldset>
+      <div class="row">
+        <div><label class="fl" for="n" data-en="Name">Name</label><input type="text" id="n" name="name" autocomplete="name" required></div>
+        <div><label class="fl" for="o" data-en="Organisation">Organisation</label><input type="text" id="o" name="organisation" autocomplete="organization"></div>
+      </div>
+      <div class="row">
+        <div><label class="fl" for="e" data-en="Email">E-Mail</label><input type="email" id="e" name="email" autocomplete="email" required></div>
+        <div><label class="fl" for="w" data-en="Interest">Anliegen</label>
+          <select id="w" name="anliegen"></select></div>
+      </div>
+      <div><label class="fl" for="m" data-en="Message">Nachricht</label><textarea id="m" name="nachricht" data-ph-de="z. B. 2. Lehrjahr Polymechanik, 22 Lernende, Start nach den Herbstferien" data-ph-en="e.g. 2nd-year polymechanics, 22 learners, start after autumn break"></textarea></div>
+      <div class="form-foot">
+        <small data-en="We only use your details to reply to your request.">Wir verwenden Ihre Angaben nur, um Ihre Anfrage zu beantworten.</small>
+        <button class="btn btn-primary" type="submit" data-en="Send request">Anfrage senden</button>
+      </div>
+      <div class="done" id="done" hidden></div>
+    </form>
+  </div>
+</section>
+
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">TALK-TECH</span>
+    <span data-en="AI conversation simulations for vocational education">KI-Gesprächssimulationen für die Berufsbildung</span>
+    <span class="made">Gmacht mit <svg class="heart" viewBox="0 0 24 24" aria-label="love"><defs><linearGradient id="hg" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#4a78c0"/><stop offset=".55" stop-color="#459a98"/><stop offset="1" stop-color="#48ac5f"/></linearGradient></defs><path fill="url(#hg)" d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 3 4.5 6.7 4.5c2.1 0 3.6 1.2 5.3 3.1 1.7-1.9 3.2-3.1 5.3-3.1 3.7 0 5.8 3.9 4.3 7.3C19.5 16.4 12 21 12 21z"/></svg> in Züri <svg class="ch" viewBox="0 0 32 32" aria-label="Schweiz"><rect width="32" height="32" rx="6" fill="#d52b1e"/><path fill="#fff" d="M13 6h6v7h7v6h-7v7h-6v-7H6v-6h7z"/></svg></span>
+    <a class="r" href="https://github.com/wagemutig/techtalk" target="_blank" rel="noopener">GitHub</a>
+  </div>
+</footer>
+  <script is:inline src="/site.js"></script>
 </Layout>

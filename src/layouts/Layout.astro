@@ -3,21 +3,25 @@ import '../styles/global.css';
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="de">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <meta name="description" content="TALK-TECH — AI-powered technical English conversation simulation for vocational education. Built with Xara, GPT-4o, and adaptive dialogue." />
-    <meta name="keywords" content="TALK-TECH, AI education, technical English, vocational training, XR, conversational AI" />
+    <title>TALK-TECH · KI-Gesprächssimulationen für die Berufsbildung</title>
+    <meta name="description" content="TALK-TECH entwickelt KI-gestützte Gesprächssimulationen für Berufsfachschulen. Lernende erklären einem virtuellen Gegenüber reale Technik, auf Englisch und in Echtzeit. Die ganze Klasse gleichzeitig." />
+    <meta property="og:title" content="TALK-TECH · KI-Gesprächssimulationen für die Berufsbildung" />
+    <meta property="og:description" content="Jede lernende Person führt ihr eigenes Fachgespräch. Erste Simulation: Mr. Barker visits." />
+    <meta property="og:type" content="website" />
+    <meta name="theme-color" content="#f2f5f8" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0d1625" media="(prefers-color-scheme: dark)" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
-    <title>TALK-TECH | AI-Powered Technical English Training</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" />
   </head>
-  <body class="bg-slate-950 text-slate-200 antialiased">
+  <body>
     <slot />
   </body>
 </html>
