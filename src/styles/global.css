@@ -23,6 +23,8 @@ img{max-width:100%}
 
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
+/* keep anchor targets clear of the sticky nav */
+section[id],header[id],.explorer{scroll-margin-top:calc(80px + env(safe-area-inset-top,0px))}
 body{background:var(--paper);color:var(--ink);font:400 1rem/1.6 var(--body);
 }
 .wrap{max-width:1180px;margin:0 auto;padding-inline:clamp(16px,4vw,40px)}

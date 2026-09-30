@@ -49,8 +49,19 @@
   var px=null,pn=document.querySelector('.panels');
   pn.addEventListener('touchstart',function(e){px=e.touches[0].clientX},{passive:true});
   pn.addEventListener('touchend',function(e){if(px===null)return;var dx=e.changedTouches[0].clientX-px;if(Math.abs(dx)>60)show(cur+(dx<0?1:-1));px=null});
-  document.querySelectorAll('a[href="#pilot"]').forEach(function(a){a.addEventListener('click',function(){show(3)})});
-  if(location.hash==='#pilot'){show(3);document.getElementById('mr-barker').scrollIntoView()}
+  // «Pilot» lives in a tab, not a section: open the tab, then scroll to the explorer
+  function openPilot(){
+    show(3);
+    var ex=document.querySelector('#mr-barker .explorer');
+    var smooth=!window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    ex.scrollIntoView({behavior:smooth?'smooth':'auto',block:'start'});
+  }
+  document.querySelectorAll('a[href="#pilot"]').forEach(function(a){a.addEventListener('click',function(e){
+    e.preventDefault();openPilot();
+    try{history.replaceState(null,'','#pilot')}catch(err){}
+  })});
+  window.addEventListener('hashchange',function(){if(location.hash==='#pilot')openPilot()});
+  if(location.hash==='#pilot')requestAnimationFrame(openPilot);
 
   document.getElementById('f').addEventListener('submit',function(ev){
     ev.preventDefault();
