@@ -1,5 +1,5 @@
 ---
-// One-pager for the print link mrbarker.talk-tech.ch (Zürcher Schulblatt).
+// One-pager for the print link ausprobieren.talk-tech.ch (Zürcher Schulblatt).
 // netlify.toml serves this page at the root of that subdomain.
 // Update XARA_URL / VALID_UNTIL when the team issues a new demo link.
 import fs from 'node:fs';
@@ -7,7 +7,9 @@ import Layout from '../layouts/Layout.astro';
 
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 const MAIN = 'https://talk-tech.ch'; // main site; links back there from the subdomain
-const XARA_URL = 'https://training.xaraapp.ch/?token=qKAlqnRo07XdQYEm9OsFNp6sY4X4KFyAAeulm3HMjcKvWpTKofbkZxS6sK9KBZ3qea67_vHTWxN_Zy-Q0-WnWA&valid_until=31-01-2027';
+// Short link from the worksheet; it forwards to the Xara demo
+// (https://training.xaraapp.ch/?token=…&valid_until=31-01-2027)
+const XARA_URL = 'https://telu.ch/cuuz4';
 const VALID_UNTIL = '2027-01-31';
 const validLabel = '31. Januar 2027';
 
@@ -89,8 +91,25 @@ const vocab = [
           <ol>
             {vocab.map((v, i) => <li><span>{i + 1}</span>{v}</li>)}
           </ol>
-          {hasWorksheet && <a class="btn btn-ghost" href={`${b}/${WORKSHEET}`} download>Arbeitsblatt als PDF</a>}
+          <div class="mb-sheet-actions no-print">
+            <button type="button" class="btn btn-ghost" id="print-sheet">Drucken / als PDF speichern</button>
+            {hasWorksheet && <a class="btn btn-ghost" href={`${b}/${WORKSHEET}`} download>Original-Arbeitsblatt (PDF)</a>}
+          </div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mb-final" aria-labelledby="final-h">
+    <div class="wrap">
+      <div class="mb-final-box">
+        <div>
+          <h2 id="final-h">Bereit für die Simulation?</h2>
+          <p>Starten Sie direkt hier oder scannen Sie den QR-Code mit dem Smartphone.</p>
+          <div class="cta no-print"><a class="btn btn-primary" href={XARA_URL} target="_blank" rel="noopener">Simulation starten →</a></div>
+          <p class="mb-meta">{XARA_URL.replace('https://', '')} · gültig bis {validLabel} · keine persönlichen Daten</p>
+        </div>
+        <img class="mb-qr" src={`${b}/images/qr-start.svg`} width="160" height="160" alt="QR-Code zum Start der Simulation" />
       </div>
     </div>
   </section>
@@ -160,9 +179,10 @@ const vocab = [
       if(Date.now()>end.getTime()){
         box.querySelector('.mb-live').hidden=true;
         box.querySelector('.mb-ended').hidden=false;
-        document.querySelectorAll('a[href*="xaraapp"]').forEach(function(a){a.href='#start';a.removeAttribute('target')});
+        document.querySelectorAll('a[href*="telu.ch"]').forEach(function(a){a.href='#start';a.removeAttribute('target')});
       }
     })();
+    var pb=document.getElementById('print-sheet'); if(pb) pb.addEventListener('click',function(){window.print()});
   </script>
 </Layout>
 
@@ -205,4 +225,26 @@ const vocab = [
   .mb-facts dt{font:500 .72rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
   .mb-facts dd{margin:0}
   #lehrpersonen{padding-bottom:var(--s-sec)}
+  @media (min-width:1100px){.mb-vocab ol{grid-template-columns:1fr 1fr;column-gap:24px}}
+  .mb-sheet-actions{display:flex;flex-wrap:wrap;gap:10px}
+  .mb-final-box{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:28px;padding:clamp(24px,4vw,40px);border-radius:12px;background:var(--surface);border:1px solid var(--line)}
+  .mb-final-box h2{font-size:clamp(1.6rem,3vw,2.2rem);font-weight:800;font-stretch:90%}
+  .mb-final-box p{color:var(--muted);margin-top:10px;max-width:52ch}
+  .mb-final-box .cta{margin-top:20px}
+  .mb-qr{width:160px;height:160px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:10px}
+
+  /* Print: a clean worksheet (title, drawing, vocabulary, start link + QR) */
+  @media print{
+    :global(.nav), :global(footer), .no-print, .mb-check, #ablauf, #lehrpersonen, .mb-hero .cta, .mb-ended{display:none !important}
+    :global(body){background:#fff !important;color:#000 !important}
+    :global(:root){--paper:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#bbb}
+    section, .mb-hero-grid{padding-block:12px !important}
+    .mb-hero-grid{grid-template-columns:1fr}
+    .mb-hero h1{font-size:28pt}
+    .mb-sheet{grid-template-columns:1.2fr 1fr;break-inside:avoid}
+    .mb-vocab ol{grid-template-columns:1fr}
+    .mb-final{break-inside:avoid}
+    .mb-final-box{border:1px solid #bbb}
+    #arbeitsblatt .sec-head p{display:none}
+  }
 </style>

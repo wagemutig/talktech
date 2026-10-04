@@ -5,11 +5,11 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Print link for the Zürcher Schulblatt: mrbarker.talk-tech.ch shows the
+# Print link for the Zürcher Schulblatt: ausprobieren.talk-tech.ch shows the
 # Mr. Barker one-pager at its root (force, because / would otherwise serve
 # the main index.html). Assets resolve from the shared site root.
 [[redirects]]
-  from = "https://mrbarker.talk-tech.ch/"
+  from = "https://ausprobieren.talk-tech.ch/"
   to = "/mrbarker/"
   status = 200
   force = true
