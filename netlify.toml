@@ -4,3 +4,9 @@
 
 [build.environment]
   NODE_VERSION = "22"
+
+# Short alias for print: /ausprobieren -> /schulblatt
+[[redirects]]
+  from = "/ausprobieren"
+  to = "/schulblatt/"
+  status = 301
