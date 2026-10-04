@@ -24,7 +24,7 @@ const vocab = [
   'Circlip or retaining ring',
 ];
 ---
-<Layout title="Mr. Barker visits · TALK-TECH">
+<Layout title="Fachgespräch mit Mr. Barker · TALK-TECH">
   <nav class="nav" aria-label="Navigation">
     <div class="wrap">
       <a class="wordmark" href={MAIN}>TALK-TECH</a>
@@ -41,34 +41,37 @@ const vocab = [
   <header class="mb-hero" id="start">
     <div class="wrap mb-hero-grid">
       <div>
-        <p class="eyebrow">TALK-TECH · Fachgespräch Technisches Englisch</p>
-        <h1>Mr.&nbsp;Barker visits</h1>
-        <p class="lede">Ein US-amerikanischer Geschäftspartner will eine Baugruppe kaufen, aber nur, wenn ihm jemand sie auf Englisch erklärt. Probieren Sie die KI-Gesprächssimulation selbst aus: im Browser, in Echtzeit, rund 15 Minuten.</p>
+        <p class="eyebrow">TALK-TECH · Simulation Training</p>
+        <h1>Fachgespräch mit Mr.&nbsp;Barker</h1>
+        <div class="mb-welcome">
+          <img src={`${b}/images/avatar_msgoodwill.png`} alt="Ms. Goodwill" width="56" height="56" />
+          <p class="lede">«Hallo! Ich bin Frau Goodwill, deine Sprachtrainerin für technisches Englisch. In dieser Simulation übst du ein Fachgespräch mit unserem Kunden, Herrn Barker. Er ist ein US-Geschäftsmann mit technischem Hintergrund und an einer Zusammenarbeit mit unserem Unternehmen interessiert.»</p>
+        </div>
 
         <div class="mb-cta" data-valid-until={VALID_UNTIL}>
           <div class="mb-live">
             <div class="cta">
               <a class="btn btn-primary" href={XARA_URL} target="_blank" rel="noopener">Simulation starten →</a>
-              <a class="btn btn-ghost" href="#arbeitsblatt">Arbeitsblatt ansehen</a>
+              <a class="btn btn-ghost" href="#arbeitsblatt">Vokabular & Zeichnung</a>
             </div>
-            <p class="mb-meta">Ohne Installation · verfügbar bis {validLabel}</p>
+            <p class="mb-meta">Im Browser, ohne Installation · Link gültig bis 31.01.27</p>
             <p class="mb-meta">Es werden keine persönlichen Daten übermittelt oder gespeichert.</p>
           </div>
           <div class="mb-ended" hidden>
-            <p><b>Die öffentliche Demo ist beendet.</b> Möchten Sie Mr. Barker mit Ihrer Klasse ausprobieren? Wir zeigen Ihnen die Simulation gerne persönlich.</p>
+            <p><b>Der Link ist abgelaufen.</b> Möchtest du Mr. Barker mit deiner Klasse ausprobieren? Wir zeigen dir die Simulation gerne persönlich.</p>
             <div class="cta"><a class="btn btn-primary" href={`${MAIN}/#kontakt`}>Vorführung anfragen →</a></div>
           </div>
         </div>
       </div>
 
       <aside class="mb-check" aria-labelledby="check-h">
-        <h2 id="check-h">Bevor Sie starten</h2>
+        <h2 id="check-h">Bevor du startest</h2>
         <ul>
-          <li><span>01</span>Laptop oder Desktop mit Chrome oder Edge. Ein Smartphone geht auch.</li>
+          <li><span>01</span>Laptop oder Computer mit Chrome oder Edge. Ein Smartphone geht auch.</li>
           <li><span>02</span>Kopfhörer oder Headset mit Mikrofon.</li>
-          <li><span>03</span>Ein ruhiger Raum. Die Spracherkennung reagiert auf Hintergrundgeräusche.</li>
-          <li><span>04</span>Den Mikrofonzugriff erlauben, wenn der Browser danach fragt.</li>
-          <li><span>05</span>Das Arbeitsblatt unten auf dem Bildschirm oder ausgedruckt bereithalten.</li>
+          <li><span>03</span>Ein ruhiger Ort. Die Spracherkennung reagiert auf Hintergrundgeräusche.</li>
+          <li><span>04</span>Erlaube den Zugriff aufs Mikrofon, wenn der Browser danach fragt.</li>
+          <li><span>05</span>Halte das Vokabular und die Zeichnung bereit, auf dem Bildschirm oder ausgedruckt.</li>
         </ul>
       </aside>
     </div>
@@ -78,8 +81,8 @@ const vocab = [
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Arbeitsblatt</p>
-        <h2>Die Baugruppe und ihr Fachwortschatz.</h2>
-        <p>Mr. Barker fragt nach den Bauteilen auf dieser Zeichnung. Halten Sie sie während des Gesprächs bereit.</p>
+        <h2>Technisches Vokabular &amp; Zeichnung</h2>
+        <p>Mr. Barker fragt dich nach den Bauteilen auf dieser Zeichnung. Halte sie während des Gesprächs bereit.</p>
       </div>
       <div class="mb-sheet">
         <figure class="mb-drawing">
@@ -105,9 +108,10 @@ const vocab = [
       <div class="mb-final-box">
         <div>
           <h2 id="final-h">Bereit für die Simulation?</h2>
-          <p>Starten Sie direkt hier oder scannen Sie den QR-Code mit dem Smartphone.</p>
+          <p>Um das Training zu starten, scanne den QR-Code oder starte direkt die Simulation.</p>
           <div class="cta no-print"><a class="btn btn-primary" href={XARA_URL} target="_blank" rel="noopener">Simulation starten →</a></div>
-          <p class="mb-meta">{XARA_URL.replace('https://', '')} · gültig bis {validLabel} · keine persönlichen Daten</p>
+          <p class="mb-meta">{XARA_URL.replace('https://', '')} · Link gültig bis 31.01.27</p>
+          <p class="mb-meta">Es werden keine persönlichen Daten übermittelt oder gespeichert.</p>
         </div>
         <img class="mb-qr" src={`${b}/images/qr-start.svg`} width="160" height="160" alt="QR-Code zum Start der Simulation" />
       </div>
@@ -118,26 +122,26 @@ const vocab = [
     <div class="wrap">
       <div class="sec-head">
         <p class="eyebrow">Ablauf</p>
-        <h2>Drei Phasen, rund 15 Minuten.</h2>
-        <p>Zwei KI-Figuren begleiten Sie: Ms. Goodwill bereitet vor und gibt Feedback, Mr. Barker stellt die Fragen.</p>
+        <h2>Das Gespräch wird wie folgt ablaufen.</h2>
+        <p>Deine Gesprächspartner: Ms. Goodwill ist dein Coach, Mr. Barker der Kunde.</p>
       </div>
       <div class="phases">
         <div class="phase">
           <div class="top"><span class="num">01</span><span>~2 Min. · Deutsch</span></div>
           <h3>Briefing</h3>
-          <p>Ms. Goodwill führt auf Deutsch ins Szenario und den Fachwortschatz ein.</p>
+          <p>Ich gebe dir vorab wichtige Zusatzinformationen.</p>
           <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · Coach</div>
         </div>
         <div class="phase">
           <div class="top"><span class="num">02</span><span>~10 Min. · Englisch</span></div>
-          <h3>Fachgespräch</h3>
-          <p>Zehn Fragen von Mr. Barker. Er passt das Niveau Ihren Antworten an, vom Benennen der Teile bis zur Fehlersuche.</p>
+          <h3>Simulation</h3>
+          <p>Du führst das englische Fachgespräch mit Herrn Barker. Er passt seine Fragen deinen Antworten an.</p>
           <div class="agent"><img src={`${b}/images/avatar_mrbarker.png`} alt="">Mr. Barker · Kunde</div>
         </div>
         <div class="phase">
           <div class="top"><span class="num">03</span><span>~3 Min. · zweisprachig</span></div>
           <h3>Debriefing</h3>
-          <p>Ms. Goodwill wertet das Gespräch mit Ihnen aus und gibt Feedback zu Wortschatz, Grammatik und Flüssigkeit.</p>
+          <p>Wir analysieren gemeinsam dein Gespräch.</p>
           <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · Coach</div>
         </div>
       </div>
@@ -149,7 +153,7 @@ const vocab = [
       <div>
         <p class="eyebrow">Für Lehrpersonen</p>
         <h2>Mit der ganzen Klasse gleichzeitig.</h2>
-        <p>In der Klasse führt jede lernende Person ihr eigenes Gespräch, alle 24 parallel. Die Simulation ist für Polymechaniker:innen und Automatiker:innen im Rahmen von FutureMEM entwickelt. Im Klassenpilot an der Berufsschule Rüti erreichte sie einen SUS-Score von 74,3, der Benchmark liegt bei 68.</p>
+        <p>Du unterrichtest selbst? In der Klasse führt jede lernende Person ihr eigenes Gespräch, alle 24 parallel. Die Simulation ist für Polymechaniker:innen und Automatiker:innen im Rahmen von FutureMEM entwickelt. Im Klassenpilot an der Berufsschule Rüti erreichte sie einen SUS-Score von 74,3, der Benchmark liegt bei 68.</p>
         <div class="cta">
           <a class="btn btn-primary" href={`${MAIN}/#kontakt`}>Klassendemo anfragen →</a>
           <a class="btn btn-ghost" href={MAIN}>Mehr über TALK-TECH</a>
@@ -191,6 +195,9 @@ const vocab = [
   .mb-hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,64px);padding-block:clamp(40px,6vw,72px);align-items:start}
   @media (max-width:860px){.mb-hero-grid{grid-template-columns:1fr}}
   .mb-hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:850;font-stretch:88%;letter-spacing:-.02em;margin-top:var(--s-eyebrow)}
+  .mb-welcome{display:grid;grid-template-columns:56px 1fr;gap:16px;align-items:start;margin-top:20px}
+  .mb-welcome img{width:56px;height:56px;border-radius:50%}
+  .mb-welcome .lede{margin-top:0}
   .mb-meta{margin-top:10px;font-size:.88rem;color:var(--muted)}
   .mb-meta:first-of-type{margin-top:14px}
   .mb-ended{margin-top:28px;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
