@@ -1,0 +1,208 @@
+---
+// One-pager for the print link mrbarker.talk-tech.ch (Zürcher Schulblatt).
+// netlify.toml serves this page at the root of that subdomain.
+// Update XARA_URL / VALID_UNTIL when the team issues a new demo link.
+import fs from 'node:fs';
+import Layout from '../layouts/Layout.astro';
+
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const MAIN = 'https://talk-tech.ch'; // main site; links back there from the subdomain
+const XARA_URL = 'https://training.xaraapp.ch/?token=qKAlqnRo07XdQYEm9OsFNp6sY4X4KFyAAeulm3HMjcKvWpTKofbkZxS6sK9KBZ3qea67_vHTWxN_Zy-Q0-WnWA&valid_until=31-01-2027';
+const VALID_UNTIL = '2027-01-31';
+const validLabel = '31. Januar 2027';
+
+// Download button appears automatically once the PDF is in public/
+const WORKSHEET = 'arbeitsblatt-mr-barker-visits.pdf';
+const hasWorksheet = fs.existsSync(new URL(`../../public/${WORKSHEET}`, import.meta.url));
+
+const vocab = [
+  'Shaft', 'Bevel gear', 'Locking plate', 'Deep groove ball bearings', 'Spacer',
+  'Radial shaft seal', 'O-ring', 'Hexagonal screw', 'Washer', 'Hexagonal nut',
+  'Flat head screw with slot', 'Taper pin', 'Bolt', 'Spring pin', 'Washer',
+  'Circlip or retaining ring',
+];
+---
+<Layout title="Mr. Barker visits · TALK-TECH">
+  <nav class="nav" aria-label="Navigation">
+    <div class="wrap">
+      <a class="wordmark" href={MAIN}>TALK-TECH</a>
+      <div class="nav-links">
+        <a href="#start">Ausprobieren</a>
+        <a href="#arbeitsblatt">Arbeitsblatt</a>
+        <a href="#ablauf">Ablauf</a>
+        <a href="#lehrpersonen">Für Lehrpersonen</a>
+      </div>
+      <a class="btn btn-primary" href={XARA_URL} target="_blank" rel="noopener">Starten</a>
+    </div>
+  </nav>
+
+  <header class="mb-hero" id="start">
+    <div class="wrap mb-hero-grid">
+      <div>
+        <p class="eyebrow">TALK-TECH · Fachgespräch Technisches Englisch</p>
+        <h1>Mr.&nbsp;Barker visits</h1>
+        <p class="lede">Ein US-amerikanischer Geschäftspartner will eine Baugruppe kaufen, aber nur, wenn ihm jemand sie auf Englisch erklärt. Probieren Sie die KI-Gesprächssimulation selbst aus: im Browser, in Echtzeit, rund 15 Minuten.</p>
+
+        <div class="mb-cta" data-valid-until={VALID_UNTIL}>
+          <div class="mb-live">
+            <div class="cta">
+              <a class="btn btn-primary" href={XARA_URL} target="_blank" rel="noopener">Simulation starten →</a>
+              <a class="btn btn-ghost" href="#arbeitsblatt">Arbeitsblatt ansehen</a>
+            </div>
+            <p class="mb-meta">Ohne Installation · verfügbar bis {validLabel}</p>
+            <p class="mb-meta">Es werden keine persönlichen Daten übermittelt oder gespeichert.</p>
+          </div>
+          <div class="mb-ended" hidden>
+            <p><b>Die öffentliche Demo ist beendet.</b> Möchten Sie Mr. Barker mit Ihrer Klasse ausprobieren? Wir zeigen Ihnen die Simulation gerne persönlich.</p>
+            <div class="cta"><a class="btn btn-primary" href={`${MAIN}/#kontakt`}>Vorführung anfragen →</a></div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="mb-check" aria-labelledby="check-h">
+        <h2 id="check-h">Bevor Sie starten</h2>
+        <ul>
+          <li><span>01</span>Laptop oder Desktop mit Chrome oder Edge. Ein Smartphone geht auch.</li>
+          <li><span>02</span>Kopfhörer oder Headset mit Mikrofon.</li>
+          <li><span>03</span>Ein ruhiger Raum. Die Spracherkennung reagiert auf Hintergrundgeräusche.</li>
+          <li><span>04</span>Den Mikrofonzugriff erlauben, wenn der Browser danach fragt.</li>
+          <li><span>05</span>Das Arbeitsblatt unten auf dem Bildschirm oder ausgedruckt bereithalten.</li>
+        </ul>
+      </aside>
+    </div>
+  </header>
+
+  <section id="arbeitsblatt">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Arbeitsblatt</p>
+        <h2>Die Baugruppe und ihr Fachwortschatz.</h2>
+        <p>Mr. Barker fragt nach den Bauteilen auf dieser Zeichnung. Halten Sie sie während des Gesprächs bereit.</p>
+      </div>
+      <div class="mb-sheet">
+        <figure class="mb-drawing">
+          <img src={`${b}/images/baugruppe-mr-barker.webp`} width="1200" height="1120" alt="Schnittzeichnung der Baugruppe mit den Positionsnummern 1 bis 16" loading="lazy" />
+          <figcaption>Quelle: Swissmem VTME 1TE</figcaption>
+        </figure>
+        <div class="mb-vocab">
+          <h3>Technisches Vokabular</h3>
+          <ol>
+            {vocab.map((v, i) => <li><span>{i + 1}</span>{v}</li>)}
+          </ol>
+          {hasWorksheet && <a class="btn btn-ghost" href={`${b}/${WORKSHEET}`} download>Arbeitsblatt als PDF</a>}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ablauf">
+    <div class="wrap">
+      <div class="sec-head">
+        <p class="eyebrow">Ablauf</p>
+        <h2>Drei Phasen, rund 15 Minuten.</h2>
+        <p>Zwei KI-Figuren begleiten Sie: Ms. Goodwill bereitet vor und gibt Feedback, Mr. Barker stellt die Fragen.</p>
+      </div>
+      <div class="phases">
+        <div class="phase">
+          <div class="top"><span class="num">01</span><span>~2 Min. · Deutsch</span></div>
+          <h3>Briefing</h3>
+          <p>Ms. Goodwill führt auf Deutsch ins Szenario und den Fachwortschatz ein.</p>
+          <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · Coach</div>
+        </div>
+        <div class="phase">
+          <div class="top"><span class="num">02</span><span>~10 Min. · Englisch</span></div>
+          <h3>Fachgespräch</h3>
+          <p>Zehn Fragen von Mr. Barker. Er passt das Niveau Ihren Antworten an, vom Benennen der Teile bis zur Fehlersuche.</p>
+          <div class="agent"><img src={`${b}/images/avatar_mrbarker.png`} alt="">Mr. Barker · Kunde</div>
+        </div>
+        <div class="phase">
+          <div class="top"><span class="num">03</span><span>~3 Min. · zweisprachig</span></div>
+          <h3>Debriefing</h3>
+          <p>Ms. Goodwill wertet das Gespräch mit Ihnen aus und gibt Feedback zu Wortschatz, Grammatik und Flüssigkeit.</p>
+          <div class="agent"><img src={`${b}/images/avatar_msgoodwill.png`} alt="">Ms. Goodwill · Coach</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="lehrpersonen">
+    <div class="wrap mb-teachers">
+      <div>
+        <p class="eyebrow">Für Lehrpersonen</p>
+        <h2>Mit der ganzen Klasse gleichzeitig.</h2>
+        <p>In der Klasse führt jede lernende Person ihr eigenes Gespräch, alle 24 parallel. Die Simulation ist für Polymechaniker:innen und Automatiker:innen im Rahmen von FutureMEM entwickelt. Im Klassenpilot an der Berufsschule Rüti erreichte sie einen SUS-Score von 74,3, der Benchmark liegt bei 68.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href={`${MAIN}/#kontakt`}>Klassendemo anfragen →</a>
+          <a class="btn btn-ghost" href={MAIN}>Mehr über TALK-TECH</a>
+        </div>
+      </div>
+      <dl class="mb-facts">
+        <div><dt>Zielgruppe</dt><dd>Polymechanik, Automatik, MEM-Berufe</dd></div>
+        <div><dt>Sprachniveau</dt><dd>Englisch B2</dd></div>
+        <div><dt>Dauer</dt><dd>ca. 15 Min. pro Person</dd></div>
+        <div><dt>Geräte</dt><dd>Browser, Smartphone, VR-Brille</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <a class="wordmark" href={MAIN}>TALK-TECH</a>
+      <span>KI-Gesprächssimulationen für die Berufsbildung · PH Zürich</span>
+    </div>
+  </footer>
+
+  <script is:inline>
+    // After the demo link expires, swap the start button for a contact prompt
+    (function(){
+      var box=document.querySelector('.mb-cta'); if(!box) return;
+      var end=new Date(box.getAttribute('data-valid-until')+'T23:59:59+01:00');
+      if(Date.now()>end.getTime()){
+        box.querySelector('.mb-live').hidden=true;
+        box.querySelector('.mb-ended').hidden=false;
+        document.querySelectorAll('a[href*="xaraapp"]').forEach(function(a){a.href='#start';a.removeAttribute('target')});
+      }
+    })();
+  </script>
+</Layout>
+
+<style>
+  .mb-hero{border-bottom:1px solid var(--line)}
+  .mb-hero-grid{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,64px);padding-block:clamp(40px,6vw,72px);align-items:start}
+  @media (max-width:860px){.mb-hero-grid{grid-template-columns:1fr}}
+  .mb-hero h1{font-size:clamp(2.4rem,5.4vw,4.2rem);font-weight:850;font-stretch:88%;letter-spacing:-.02em;margin-top:var(--s-eyebrow)}
+  .mb-meta{margin-top:10px;font-size:.88rem;color:var(--muted)}
+  .mb-meta:first-of-type{margin-top:14px}
+  .mb-ended{margin-top:28px;padding:20px;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  .mb-ended p{max-width:52ch}
+  .mb-check{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,28px)}
+  .mb-check h2{font-size:1.3rem;font-weight:800}
+  .mb-check ul{list-style:none;margin:16px 0 0;padding:0;display:grid;gap:12px}
+  .mb-check li{display:grid;grid-template-columns:28px 1fr;gap:8px;font-size:.95rem}
+  .mb-check li span{font:600 .78rem/1.7 var(--mono);color:var(--muted)}
+
+  .mb-sheet{display:grid;grid-template-columns:7fr 5fr;gap:clamp(20px,3vw,32px);align-items:start}
+  @media (max-width:860px){.mb-sheet{grid-template-columns:1fr}}
+  /* the drawing is black on white, so it keeps a white card in both themes */
+  .mb-drawing{margin:0;background:#fff;border:1px solid var(--line);border-radius:10px;padding:clamp(12px,2vw,24px)}
+  .mb-drawing img{display:block;width:100%;height:auto}
+  .mb-drawing figcaption{margin-top:8px;font:500 .72rem/1.4 var(--mono);color:#51607a}
+  .mb-vocab{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:clamp(20px,3vw,28px);display:grid;gap:16px}
+  .mb-vocab h3{font-size:1.3rem;font-weight:800}
+  .mb-vocab ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}
+  .mb-vocab li{display:grid;grid-template-columns:34px 1fr;gap:8px;padding:6px 0;border-bottom:1px dashed var(--line);font-size:.95rem}
+  .mb-vocab li:last-child{border-bottom:0}
+  .mb-vocab li span{font:600 .8rem/1.6 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+  .mb-vocab .btn{justify-self:start}
+
+  .mb-teachers{display:grid;grid-template-columns:7fr 5fr;gap:clamp(28px,5vw,64px);align-items:start}
+  @media (max-width:860px){.mb-teachers{grid-template-columns:1fr}}
+  .mb-teachers h2{font-size:clamp(1.9rem,3.4vw,2.8rem);font-weight:800;font-stretch:90%;margin:var(--s-eyebrow) 0 16px}
+  .mb-teachers p{color:var(--muted);max-width:60ch}
+  .mb-facts{margin:0;border:1px solid var(--line);border-radius:10px;background:var(--surface)}
+  .mb-facts div{display:grid;grid-template-columns:120px 1fr;gap:12px;padding:12px 16px;border-bottom:1px solid var(--line)}
+  .mb-facts div:last-child{border-bottom:0}
+  .mb-facts dt{font:500 .72rem/1.6 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+  .mb-facts dd{margin:0}
+  #lehrpersonen{padding-bottom:var(--s-sec)}
+</style>

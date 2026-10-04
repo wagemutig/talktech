@@ -5,8 +5,22 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Short alias for print: /ausprobieren -> /schulblatt
+# Print link for the Zürcher Schulblatt: mrbarker.talk-tech.ch shows the
+# Mr. Barker one-pager at its root (force, because / would otherwise serve
+# the main index.html). Assets resolve from the shared site root.
+[[redirects]]
+  from = "https://mrbarker.talk-tech.ch/"
+  to = "/mrbarker/"
+  status = 200
+  force = true
+
+# Older and alternative paths
+[[redirects]]
+  from = "/schulblatt"
+  to = "/mrbarker/"
+  status = 301
+
 [[redirects]]
   from = "/ausprobieren"
-  to = "/schulblatt/"
+  to = "/mrbarker/"
   status = 301
