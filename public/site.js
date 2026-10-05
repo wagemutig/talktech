@@ -87,6 +87,15 @@
   });
 
 
+  // demo links: once the public demo has expired, point them back to the simulation section
+  document.querySelectorAll('a[data-demo-until]').forEach(function(a){
+    if(Date.now()>new Date(a.getAttribute('data-demo-until')+'T23:59:59+01:00').getTime()){
+      a.href='#mr-barker';a.removeAttribute('target');
+      a.setAttribute('data-en','See the simulation');a.setAttribute('data-de','Simulation ansehen');
+      a.innerHTML=lang==='en'?'See the simulation':'Simulation ansehen';
+    }
+  });
+
   // hero call view: cycle through a short spoken exchange (captions), K-level climbs with each answer
   (function(){
     var call=document.querySelector('.call');if(!call)return;

@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { XARA_URL, VALID_UNTIL } from '../config/demo';
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Awards & competitions. The strip stays hidden until this list has entries.
@@ -33,7 +34,7 @@ const awards: { name: string; result: string; resultEn?: string; url?: string }[
       <p class="lede" data-en="TALK-TECH builds AI-driven conversation simulations for vocational schools. For example, apprentices explain real technology to a virtual counterpart, in English and in real time. The whole class at once.">TALK-TECH entwickelt KI-gestützte Gesprächssimulationen für Berufsfachschulen. So erklären Lernende beispielsweise einem virtuellen Gegenüber reale Technik, auf Englisch und in Echtzeit. Die ganze Klasse gleichzeitig.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#kontakt" data-en="Request a demo →">Demo anfragen →</a>
-        <a class="btn btn-ghost" href="#mr-barker" data-en="See the simulation">Simulation ansehen</a>
+        <a class="btn btn-ghost" href={XARA_URL} target="_blank" rel="noopener" data-demo-until={VALID_UNTIL} data-en="Try the simulation ↗">Simulation ausprobieren ↗</a>
       </div>
       <dl class="hero-facts">
         <div><dt>24</dt><dd data-en="learners at once">Lernende gleichzeitig</dd></div>
