@@ -1,6 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+
+// Awards & competitions. The strip stays hidden until this list has entries.
+// Example: { name: 'hackAstone 2026', result: '1. Platz', resultEn: '1st place', url: 'https://…' }
+const awards: { name: string; result: string; resultEn?: string; url?: string }[] = [];
 ---
 <Layout>
 <nav class="nav" aria-label="Hauptnavigation">
@@ -39,20 +43,28 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
       </dl>
     </div>
 
-    <div class="sim" aria-label="Beispiel eines Gesprächsverlaufs">
-      <div class="sim-head">
-        <img src={`${b}/images/avatar_mrbarker.png`} alt="">
-        <div><b>Mr. Barker</b><small>MR. BARKER VISITS · EN</small></div>
-        <span class="live"><i></i>LIVE</span>
+    <div class="call" aria-label="Beispiel: Sprachgespräch mit Mr. Barker">
+      <div class="call-stage">
+        <div class="call-top">
+          <span class="live"><i></i>LIVE</span>
+          <span class="call-modes"><span data-en="Voice">Sprache</span><span data-en="Image">Bild</span><span>VR</span></span>
+        </div>
+        <div class="call-who">
+          <img class="call-avatar" src={`${b}/images/avatar_mrbarker.png`} alt="">
+          <b>Mr. Barker</b><small data-en="AI customer · USA">KI-Kunde · USA</small>
+        </div>
+        <figure class="call-pip">
+          <span class="pip-img"><img src={`${b}/images/baugruppe-mr-barker.webp`} alt="" loading="lazy"><span class="pip-mark" aria-hidden="true"></span></span>
+          <figcaption data-en="Pos. 6">Pos. 6</figcaption>
+        </figure>
+        <div class="wave" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
       </div>
-      <div class="meter"><span class="on"></span><span class="on"></span><span class="on"></span></div>
-      <div class="meter-l"><span>K1</span><span>K2</span><span data-en="K3 · question 7/10">K3 · Frage 7/10</span></div>
-      <div class="msgs">
-        <div class="msg b"><span class="tag t1">K1</span>Which component is located at position 3?</div>
-        <div class="msg l">That's the radial shaft seal. It keeps the oil inside the housing.</div>
-        <div class="msg b"><span class="tag t3">K3</span>The gearbox is overheating. Based on the drawing, what could be the cause?</div>
+      <div class="call-cap">
+        <div class="cap-head"><span class="tag t1" id="cap-k">K1</span><b id="cap-who">Mr. Barker</b><span class="cap-q" id="cap-q" data-en="Question 3/10">Frage 3/10</span></div>
+        <p id="cap-txt">What's the part at position 6, and what does it do?</p>
       </div>
-      <div class="typing"><i></i><i></i><i></i>&nbsp;<span data-en="Learner is answering">Lernende:r antwortet</span></div>
+      <div class="meter" id="cap-meter"><span class="on"></span><span></span><span></span></div>
+      <div class="meter-l"><span data-en="K1 · know">K1 · wissen</span><span data-en="K2 · understand">K2 · verstehen</span><span data-en="K3 · apply">K3 · anwenden</span></div>
     </div>
   </div>
 </header>
@@ -67,6 +79,10 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
 
     <div class="products">
       <article class="card featured">
+        <figure class="card-photo">
+          <img src={`${b}/images/vr-session.webp`} width="1400" height="875" loading="lazy" alt="Person mit VR-Brille im Gespräch mit der KI-Figur Ms. Goodwill, die auf einem Bildschirm im Schulzimmer gespiegelt wird" data-en-alt="Person wearing a VR headset talks to the AI character Ms. Goodwill, mirrored on a classroom screen">
+          <figcaption data-en="VR mode: Ms. Goodwill prepares the learner for the conversation.">VR-Modus: Ms. Goodwill bereitet aufs Gespräch vor.</figcaption>
+        </figure>
         <span class="status s-live" data-en="Piloted · June 2026">Pilotiert · Juni 2026</span>
         <p class="kicker" data-en="TALK-TECH: Technical English Conversation">TALK-TECH: Fachgespräch Technisches Englisch</p>
         <h3>Mr. Barker visits</h3>
@@ -108,32 +124,9 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
       <div class="panels">
         <div class="panel" role="tabpanel" id="p-szenario" aria-labelledby="t-szenario">
           <div class="scenario">
-      <figure class="drawing" style="margin:0">
-        <svg viewBox="0 0 520 300" role="img" aria-label="Schnittzeichnung einer Getriebewelle mit Positionsnummern">
-          <g fill="none" stroke="var(--ink)" stroke-width="1.6">
-            <rect x="120" y="70" width="240" height="160" fill="var(--surface)"/>
-            <path d="M120 90 L360 90 M120 210 L360 210" stroke="var(--muted)" stroke-width=".8" stroke-dasharray="6 4"/>
-            <rect x="40" y="136" width="420" height="28" fill="var(--paper)"/>
-            <rect x="140" y="112" width="34" height="76" fill="var(--surface)"/>
-            <line x1="140" y1="112" x2="174" y2="188" stroke-width=".8"/><line x1="174" y1="112" x2="140" y2="188" stroke-width=".8"/>
-            <rect x="306" y="112" width="34" height="76" fill="var(--surface)"/>
-            <line x1="306" y1="112" x2="340" y2="188" stroke-width=".8"/><line x1="340" y1="112" x2="306" y2="188" stroke-width=".8"/>
-            <rect x="206" y="84" width="68" height="132" fill="var(--surface)"/>
-            <path d="M206 96 h68 M206 108 h68 M206 192 h68 M206 204 h68" stroke-width=".7"/>
-            <rect x="360" y="124" width="16" height="52" fill="var(--surface)"/>
-            <path d="M360 124 l16 12 M360 176 l16 -12" stroke-width=".8"/>
-            <rect x="100" y="120" width="20" height="60" fill="var(--surface)"/>
-          </g>
-          <line x1="20" y1="150" x2="500" y2="150" stroke="var(--blue)" stroke-width=".8" stroke-dasharray="14 4 3 4"/>
-          <g font-family="IBM Plex Mono, monospace" font-size="13" font-weight="600" text-anchor="middle" fill="var(--ink)">
-            <g stroke="var(--ink)" stroke-width="1"><line x1="240" y1="84" x2="240" y2="40"/><line x1="157" y1="112" x2="130" y2="40"/><line x1="368" y1="124" x2="420" y2="60"/><line x1="323" y1="188" x2="330" y2="262"/><line x1="70" y1="150" x2="60" y2="240"/><line x1="110" y1="180" x2="140" y2="262"/></g>
-            <g fill="var(--surface)" stroke="var(--ink)" stroke-width="1.4"><circle cx="130" cy="30" r="13"/><circle cx="240" cy="30" r="13"/><circle cx="430" cy="50" r="13"/><circle cx="330" cy="272" r="13"/><circle cx="60" cy="250" r="13"/><circle cx="140" cy="272" r="13"/></g>
-            <text x="130" y="35">1</text><text x="240" y="35">2</text>
-            <circle cx="430" cy="50" r="13" fill="var(--blue)" stroke="none"/><text x="430" y="55" fill="#fff">3</text>
-            <text x="330" y="277">4</text><text x="60" y="255">5</text><text x="140" y="277">6</text>
-          </g>
-        </svg>
-        <figcaption><span data-en="Assembly: gearbox output shaft (schematic)">Baugruppe: Getriebe-Abtriebswelle (schematisch)</span><span data-en="Pos. 3 = radial shaft seal">Pos. 3 = Radial-Wellendichtring</span></figcaption>
+      <figure class="drawing">
+        <a href={`${b}/images/baugruppe-mr-barker.webp`} target="_blank" rel="noopener"><img src={`${b}/images/baugruppe-mr-barker.webp`} width="1200" height="1120" loading="lazy" alt="Technische Zeichnung der Baugruppe aus Mr. Barker visits mit 16 Positionsnummern" data-en-alt="Engineering drawing of the Mr. Barker visits assembly with 16 item numbers"></a>
+        <figcaption><span data-en="The assembly from the simulation, 16 positions">Die Baugruppe aus der Simulation, 16 Positionen</span><span data-en="Pos. 6 = radial shaft seal">Pos. 6 = Radial-Wellendichtring</span></figcaption>
       </figure>
             <div>
               <blockquote>«I'm interested in buying this assembly. Walk me through it. What does each part do?»</blockquote>
@@ -175,7 +168,7 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
               <div class="scale-l"><span data-en="K1 · know">K1 · wissen</span><span data-en="K3 · apply">K3 · anwenden</span></div>
             </div>
             <div class="levels">
-              <div class="level"><span class="k">K1</span><div><b data-en="Knowledge">Wissen</b><p data-en="Identify and name components on the drawing.">Bauteile auf der Zeichnung erkennen und benennen.</p><q>Which component is located at position number 3?</q></div></div>
+              <div class="level"><span class="k">K1</span><div><b data-en="Knowledge">Wissen</b><p data-en="Identify and name components on the drawing.">Bauteile auf der Zeichnung erkennen und benennen.</p><q>Which component is located at position number 6?</q></div></div>
               <div class="level"><span class="k">K2</span><div><b data-en="Understanding">Verstehen</b><p data-en="Explain functions, materials and why a part is used.">Funktionen, Werkstoffe und Einsatzgründe erklären.</p><q>Why do we use a radial shaft seal at this specific position?</q></div></div>
               <div class="level"><span class="k">K3</span><div><b data-en="Application">Anwenden</b><p data-en="Diagnose a fault and propose a solution.">Einen Fehler diagnostizieren und eine Lösung vorschlagen.</p><q>The gearbox is overheating. Based on the drawing, what could be the cause?</q></div></div>
             </div>
@@ -228,6 +221,19 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
   </div>
 </section>
 
+{awards.length > 0 && (
+<section id="auszeichnungen" class="awards-sec">
+  <div class="wrap awards">
+    <p class="eyebrow" data-en="Awards">Auszeichnungen</p>
+    <ul>
+      {awards.map((a) => (
+        <li>{a.url ? <a href={a.url} target="_blank" rel="noopener">{a.name}</a> : <b>{a.name}</b>}<span data-en={a.resultEn ?? a.result}>{a.result}</span></li>
+      ))}
+    </ul>
+  </div>
+</section>
+)}
+
 <section id="team" class="tight">
   <div class="wrap about">
     <div>
@@ -237,10 +243,10 @@ const b = import.meta.env.BASE_URL.replace(/\/$/, '');
     </div>
     <div>
       <ul class="team">
-        <li><span class="ini">OS</span><b>Oliver Schulthess</b></li>
-        <li><span class="ini">JS</span><b>Jonas Schubnell</b></li>
-        <li><span class="ini">AS</span><b>Aaron Schmid</b></li>
-        <li><span class="ini">CS</span><b>Colin Schmid</b></li>
+        <li><img class="ini" src={`${b}/images/team-oliver-sq.webp`} width="96" height="96" loading="lazy" alt=""><b>Oliver Schulthess</b></li>
+        <li><img class="ini" src={`${b}/images/team-jonas-sq.webp`} width="96" height="96" loading="lazy" alt=""><b>Jonas Schubnell</b></li>
+        <li><img class="ini" src={`${b}/images/team-aaron-sq.webp`} width="96" height="96" loading="lazy" alt=""><b>Aaron Schmid</b></li>
+        <li><img class="ini" src={`${b}/images/team-colin-sq.webp`} width="96" height="96" loading="lazy" alt=""><b>Colin Schmid</b></li>
       </ul>
       <p class="partners"><span class="eyebrow" data-en="Partners">Partner</span>
         <a href="https://phzh.ch" target="_blank" rel="noopener">PHZH</a>

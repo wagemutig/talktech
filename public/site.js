@@ -12,14 +12,18 @@
   document.querySelectorAll('input[name=aud]').forEach(function(r){r.addEventListener('change',fill)});
   var els=document.querySelectorAll('[data-en]');
   els.forEach(function(el){el.setAttribute('data-de',el.innerHTML)});
+  var alts=document.querySelectorAll('[data-en-alt]');
+  alts.forEach(function(el){el.setAttribute('data-de-alt',el.alt)});
   function setLang(l){
     lang=l;document.documentElement.lang=l;
     els.forEach(function(el){el.innerHTML=el.getAttribute('data-'+l)});
+    alts.forEach(function(el){el.alt=el.getAttribute('data-'+l+'-alt')});
     document.getElementById('l-de').setAttribute('aria-pressed',l==='de');
     document.getElementById('l-en').setAttribute('aria-pressed',l==='en');
     var m=document.getElementById('m');m.placeholder=m.getAttribute('data-ph-'+l);
     fill();
     if(window.__show)window.__show();
+    if(window.__cap)window.__cap();
     try{localStorage.setItem('tt-lang',l)}catch(e){}
   }
   document.getElementById('l-de').onclick=function(){setLang('de')};
@@ -82,6 +86,45 @@
       .finally(function(){btn.disabled=false});
   });
 
+
+  // hero call view: cycle through a short spoken exchange (captions), K-level climbs with each answer
+  (function(){
+    var call=document.querySelector('.call');if(!call)return;
+    var k=document.getElementById('cap-k'),who=document.getElementById('cap-who'),q=document.getElementById('cap-q'),
+        txt=document.getElementById('cap-txt'),meter=document.querySelectorAll('#cap-meter span');
+    var lines=[
+      {s:'b',k:1,n:3,t:"What's the part at position 6, and what does it do?"},
+      {s:'l',k:1,n:3,t:"That's the radial shaft seal. It keeps the oil inside the housing."},
+      {s:'b',k:2,n:4,t:"Why do you need a seal right at that spot?"},
+      {s:'l',k:2,n:4,t:"Because the shaft leaves the housing there, so oil could leak out."},
+      {s:'b',k:3,n:5,t:"The gearbox is overheating. Based on the drawing, what could be the cause?"},
+      {s:'l',k:3,n:5,t:"Maybe the bearings at position 4 are worn, or there isn't enough oil."}
+    ];
+    var i=0,timer=null;
+    function render(){
+      var L=lines[i],de=lang==='de';
+      call.classList.toggle('b-speaks',L.s==='b');call.classList.toggle('l-speaks',L.s==='l');
+      k.textContent=L.s==='b'?'K'+L.k:(de?'Antwort':'Answer');
+      k.className='tag '+(L.s==='b'?'t'+L.k:'tl');
+      who.textContent=L.s==='b'?'Mr. Barker':(de?'Lernende:r':'Learner');
+      q.textContent=(de?'Frage ':'Question ')+L.n+'/10';
+      txt.textContent=L.t;
+      meter.forEach(function(m,j){m.classList.toggle('on',j<L.k)});
+    }
+    window.__cap=render;
+    render();
+    if(window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
+    function next(){
+      txt.classList.add('fade');
+      setTimeout(function(){i=(i+1)%lines.length;render();txt.classList.remove('fade')},260);
+      timer=setTimeout(next,Math.max(3200,lines[(i+1)%lines.length].t.length*62));
+    }
+    var vis=true;
+    if('IntersectionObserver' in window){new IntersectionObserver(function(e){vis=e[0].isIntersecting;clearTimeout(timer);if(vis&&!document.hidden)timer=setTimeout(next,3600)}).observe(call)}
+    else timer=setTimeout(next,3600);
+    document.addEventListener('visibilitychange',function(){clearTimeout(timer);if(!document.hidden&&vis)timer=setTimeout(next,3600)});
+  })();
+
   // hero rain: falling K1/K2/K3, binary and TALK-TECH glyphs (echoing the team shirt).
   // Reacts to the cursor (desktop), touch drag, and device tilt where the browser allows it.
   var hero=document.querySelector('.hero'),cv=document.getElementById('rain'),cx=cv.getContext('2d');
@@ -100,7 +143,7 @@
       cols.push({x:x+Math.random()*12,y:Math.random()*(H+200),v:28+Math.random()*52,len:len,c:Math.floor(Math.random()*3),g:g})}
   }
   function draw(){
-    cx.clearRect(0,0,W,H);cx.font='500 12px "IBM Plex Mono", ui-monospace, monospace';cx.textAlign='center';cx.textBaseline='middle';
+    cx.clearRect(0,0,W,H);cx.font='500 12px ui-monospace, Menlo, Consolas, monospace';cx.textAlign='center';cx.textBaseline='middle';
     var slant=tilt.x*0.35;
     for(var k=0;k<cols.length;k++){var c=cols[k];cx.fillStyle=colors[c.c];
       for(var i=0;i<c.len;i++){
