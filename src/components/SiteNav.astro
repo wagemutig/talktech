@@ -1,0 +1,22 @@
+---
+// Anchors point at the home page; on the home page itself they stay in-page.
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const home = Astro.url.pathname.replace(/\/$/, '') === b ? '' : `${b}/`;
+---
+<nav class="nav" aria-label="Hauptnavigation">
+  <div class="wrap">
+    <a class="wordmark" href={`${home}#top`}>TALK-TECH</a>
+    <div class="nav-links">
+      <a href={`${home}#simulationen`} data-en="Simulations">Simulationen</a>
+      <a href={`${home}#mr-barker`} data-en="Mr. Barker visits">Mr. Barker visits</a>
+      <a href={`${home}#pilot`} data-en="Pilot">Pilot</a>
+      <a href={`${home}#team`} data-en="Team">Team</a>
+      <a href={`${b}/blog/`}>Blog</a>
+    </div>
+    <div class="lang" role="group" aria-label="Sprache">
+      <button type="button" id="l-de" aria-pressed="true">DE</button>
+      <button type="button" id="l-en" aria-pressed="false">EN</button>
+    </div>
+    <a class="btn btn-primary" href={`${home}#kontakt`} data-en="Request a demo">Demo anfragen</a>
+  </div>
+</nav>

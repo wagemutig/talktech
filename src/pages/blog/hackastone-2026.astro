@@ -1,0 +1,43 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { posts } from '../../config/posts';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+const p = posts.find((x) => x.slug === 'hackastone-2026')!;
+---
+<Layout title={`${p.title} · TALK-TECH`}>
+<SiteNav />
+<main class="wrap post">
+  <a class="eyebrow" href={`${b}/blog/`}>← Blog</a>
+  <p class="eyebrow" style="margin-top:24px"><time datetime={p.date}>{new Date(p.date).toLocaleDateString('de-CH')}</time></p>
+  <h1 data-en={p.titleEn}>{p.title}</h1>
+  <p class="lede" data-en={p.excerptEn}>{p.excerpt}</p>
+
+  <figure>
+    <img src={`${b}${p.image}`} width="1600" height="1067" alt="Das TALK-TECH-Team mit Jury und Organisation am hackAstone 2026 in Amsterdam, mit Schweizer Fahne und dem Schild «First Prize»" data-en-alt="The TALK-TECH team with the jury and organisers at hackAstone 2026 in Amsterdam, holding a Swiss flag and the «First Prize» sign">
+    <figcaption data-en="Grand Final, Amsterdam, 29 October 2026. Photo: hackAstone">Grand Final, Amsterdam, 29. Oktober 2026. Foto: hackAstone</figcaption>
+  </figure>
+
+  <p data-en="On 29 October 2026, the TALK-TECH team from the Zurich University of Teacher Education (PHZH) won the HACKaSTONE 2026 First Prize. The Grand Final took place at the Conference on AI for Education at VU Amsterdam. This year's theme: «Agentic AI for Education».">Am 29. Oktober 2026 gewann das TALK-TECH-Team der Pädagogischen Hochschule Zürich (PHZH) den HACKaSTONE 2026 First Prize. Das Grand Final fand an der Conference on AI for Education an der VU Amsterdam statt. Das diesjährige Thema: «Agentic AI for Education».</p>
+
+  <h2 data-en="The competition">Der Wettbewerb</h2>
+  <p data-en="hackAstone is a global competition for university students who build AI assistants for education. Each university can nominate up to three teams. The shortlisted finalists pitched in Amsterdam for ten minutes each and showed their projects live at a booth. 101 contestants, supervisors and judges came together for the closing ceremony.">Der hackAstone ist ein weltweiter Wettbewerb für Studierende, die KI-Assistenten für die Bildung entwickeln. Jede Hochschule kann bis zu drei Teams nominieren. Die Finalteams präsentierten in Amsterdam je zehn Minuten und zeigten ihre Projekte live am Stand. Zur Abschlussfeier kamen 101 Teilnehmende, Betreuungspersonen und Jurymitglieder zusammen.</p>
+
+  <h2 data-en="What we showed">Was wir gezeigt haben</h2>
+  <p data-en="Our entry was «Mr. Barker visits»: an AI conversation simulation in which apprentices present a real assembly in English to an American customer. Two AI agents work together. Ms. Goodwill prepares learners and gives feedback, Mr. Barker asks the questions and adapts the level in real time from K1 to K3. In the pilot at Berufsschule Rüti, the class rated the simulation 74.3 on the System Usability Scale.">Wir zeigten «Mr. Barker visits»: eine KI-Gesprächssimulation, in der Lernende einem US-amerikanischen Kunden eine reale Baugruppe auf Englisch präsentieren. Zwei KI-Agenten arbeiten zusammen. Ms. Goodwill bereitet vor und gibt Feedback, Mr. Barker stellt die Fragen und passt das Niveau in Echtzeit von K1 bis K3 an. Im Pilot an der Berufsschule Rüti bewertete die Klasse die Simulation mit 74,3 auf der System Usability Scale.</p>
+
+  <h2 data-en="The other winners">Die weiteren Preisträger</h2>
+  <ul>
+    <li data-en="2nd prize: ENGAGE-AGENT, Universidade CIMATEC (Brazil)">2. Preis: ENGAGE-AGENT, Universidade CIMATEC (Brasilien)</li>
+    <li data-en="3rd prize: ALL MINDS AI, University of Johannesburg (South Africa)">3. Preis: ALL MINDS AI, University of Johannesburg (Südafrika)</li>
+    <li data-en="Merit prize: AGTIVE, RWTH Aachen University (Germany)">Merit Prize: AGTIVE, RWTH Aachen University (Deutschland)</li>
+  </ul>
+  <p data-en="Congratulations to all teams, and thank you to the organisers, the jury, PHZH and IMMERSE, and the class at Berufsschule Rüti who tested Mr. Barker first.">Herzliche Gratulation an alle Teams und danke an die Organisation, die Jury, die PHZH und IMMERSE sowie an die Klasse der Berufsschule Rüti, die Mr. Barker als Erste getestet hat.</p>
+  <p><a href="https://hackastone.varteledu.com/2026/10/31/congratulations-to-team-talk-tech-ai-from-zurich-university-of-teachers-education-switzerland-winner-of-the-hackastone-2026-first-prize/" target="_blank" rel="noopener" data-en="Official announcement on hackAstone ↗">Offizielle Mitteilung von hackAstone ↗</a></p>
+
+  <div class="cta" style="margin-top:40px"><a class="btn btn-primary" href={`${b}/#kontakt`} data-en="Request a demo →">Demo anfragen →</a><a class="btn btn-ghost" href="https://www.linkedin.com/company/talk-tech-schweiz" target="_blank" rel="noopener" data-en="Follow on LinkedIn ↗">Auf LinkedIn folgen ↗</a></div>
+</main>
+<SiteFooter />
+<script is:inline src={`${b}/site.js`}></script>
+</Layout>

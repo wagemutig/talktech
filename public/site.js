@@ -20,8 +20,8 @@
     alts.forEach(function(el){el.alt=el.getAttribute('data-'+l+'-alt')});
     document.getElementById('l-de').setAttribute('aria-pressed',l==='de');
     document.getElementById('l-en').setAttribute('aria-pressed',l==='en');
-    var m=document.getElementById('m');m.placeholder=m.getAttribute('data-ph-'+l);
-    fill();
+    var m=document.getElementById('m');if(m)m.placeholder=m.getAttribute('data-ph-'+l);
+    if(sel)fill();
     if(window.__show)window.__show();
     if(window.__cap)window.__cap();
     try{localStorage.setItem('tt-lang',l)}catch(e){}
@@ -30,6 +30,7 @@
   document.getElementById('l-en').onclick=function(){setLang('en')};
   var saved='de';try{saved=localStorage.getItem('tt-lang')||'de'}catch(e){}
   setLang(saved);
+  if(!sel)return; // pages without the contact form (blog) only need the language toggle
 
 
   // explorer tabs

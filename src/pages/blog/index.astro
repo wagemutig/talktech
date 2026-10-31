@@ -1,0 +1,29 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import { posts } from '../../config/posts';
+const b = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<Layout title="Blog · TALK-TECH">
+<SiteNav />
+<main class="wrap post">
+  <p class="eyebrow">Blog</p>
+  <h1 data-en="News from TALK-TECH">Neues von TALK-TECH</h1>
+  <p class="lede"><a href="https://www.linkedin.com/company/talk-tech-schweiz" target="_blank" rel="noopener" data-en="Follow us on LinkedIn ↗">Folgen Sie uns auf LinkedIn ↗</a></p>
+  <ul class="post-list">
+    {posts.map((p) => (
+      <li><a href={`${b}/blog/${p.slug}/`}>
+        <img src={`${b}${p.image}`} alt="" loading="lazy">
+        <div>
+          <time class="eyebrow" datetime={p.date}>{new Date(p.date).toLocaleDateString('de-CH')}</time>
+          <h2 data-en={p.titleEn}>{p.title}</h2>
+          <p data-en={p.excerptEn}>{p.excerpt}</p>
+        </div>
+      </a></li>
+    ))}
+  </ul>
+</main>
+<SiteFooter />
+<script is:inline src={`${b}/site.js`}></script>
+</Layout>
