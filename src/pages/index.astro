@@ -54,6 +54,20 @@ const feat = posts.find((p) => p.slug === awards[0]?.post);
       <div class="meter" id="cap-meter"><span class="on"></span><span></span><span></span></div>
       <div class="meter-l"><span data-en="K1 · know">K1 · wissen</span><span data-en="K2 · understand">K2 · verstehen</span><span data-en="K3 · apply">K3 · anwenden</span></div>
     </div>
+    <a class="medal" href={`${b}/blog/hackastone-2026/`}>
+      <svg viewBox="0 0 120 150" aria-hidden="true">
+        <defs>
+          <radialGradient id="gold" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#fff3b0"/><stop offset=".45" stop-color="#f2c230"/><stop offset="1" stop-color="#a8740c"/></radialGradient>
+          <linearGradient id="goldrim" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ffe680"/><stop offset="1" stop-color="#8a5d06"/></linearGradient>
+        </defs>
+        <path d="M30 0h24l14 52H44z" fill="#4a78c0"/><path d="M90 0H66L52 52h24z" fill="#48ac5f"/>
+        <circle cx="60" cy="96" r="50" fill="url(#goldrim)"/>
+        <circle cx="60" cy="96" r="42" fill="url(#gold)"/>
+        <circle cx="60" cy="96" r="35" fill="none" stroke="#a8740c" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="2 3"/>
+        <text x="60" y="113" text-anchor="middle" font-family="Archivo,Arial,sans-serif" font-weight="900" font-size="48" fill="#7a5205">1</text>
+      </svg>
+      <span><b data-en="1st prize">1. Preis</b>hackAstone 2026</span>
+    </a>
   </div>
 </header>
 
