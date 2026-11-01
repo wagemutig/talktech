@@ -411,8 +411,8 @@ footer{padding-block:24px}
 /* gold medal in hero (hackAstone 2026) */
 .medal{position:absolute;top:clamp(8px,1.4vw,16px);right:clamp(4px,2vw,16px);z-index:2;display:flex;flex-direction:row-reverse;align-items:flex-end;gap:10px;text-decoration:none;color:var(--ink);transform:rotate(8deg);transition:transform .2s}
 .medal:hover{transform:rotate(0) scale(1.05)}
-.medal svg{width:clamp(96px,10vw,136px);height:auto;filter:drop-shadow(0 10px 14px rgba(15,28,48,.3))}
-.medal span{margin-bottom:24px;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font:500 .75rem/1.2 var(--body);text-align:center;white-space:nowrap;box-shadow:0 4px 10px -4px rgba(15,28,48,.25)}
+.medal svg{width:clamp(80px,8vw,108px);height:auto;filter:drop-shadow(0 10px 14px rgba(15,28,48,.3))}
+.medal span{margin-bottom:18px;padding:6px 12px;border-radius:999px;background:var(--surface);border:1px solid var(--line);font:500 .75rem/1.2 var(--body);text-align:center;white-space:nowrap;box-shadow:0 4px 10px -4px rgba(15,28,48,.25)}
 .medal b{font-family:var(--display);font-weight:800;margin-right:4px}
 /* narrow: small sticker on the hero's top-right corner, label kept for screen readers only */
-@media (max-width:900px){.medal{top:6px;right:10px;transform:rotate(12deg)}.medal svg{width:56px}.medal span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
+@media (max-width:900px){.medal{top:6px;right:10px;transform:rotate(12deg)}.medal svg{width:46px}.medal span{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}}
